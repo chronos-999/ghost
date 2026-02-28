@@ -1,1371 +1,2053 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Ghosts - Cyberservices</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style id="app-style">
-    :root {
-      --neon-cyan: #0ff;
-      --neon-magenta: #f0f;
-      --neon-purple: #b19cd9;
-      --dark-bg: #121212;
-      --darker-bg: #0a0a0a;
-    }
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--dark-bg);
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-    
-    h1, h2, h3, h4, h5, h6, .monospace {
-      font-family: 'JetBrains Mono', monospace;
-    }
-    
-    .neon-text-cyan {
-      color: var(--neon-cyan);
-      text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
-    }
-    
-    .neon-text-magenta {
-      color: var(--neon-magenta);
-      text-shadow: 0 0 5px var(--neon-magenta), 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta);
-    }
-    
-    .neon-text-purple {
-      color: var(--neon-purple);
-      text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
-    }
-    
-    .neon-border {
-      border: 1px solid var(--neon-cyan);
-      box-shadow: 0 0 5px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
-    }
-    
-    .neon-border-magenta {
-      border: 1px solid var(--neon-magenta);
-      box-shadow: 0 0 5px var(--neon-magenta), inset 0 0 5px var(--neon-magenta);
-    }
-    
-    .neon-border-purple {
-      border: 1px solid var(--neon-purple);
-      box-shadow: 0 0 5px var(--neon-purple), inset 0 0 5px var(--neon-purple);
-    }
-    
-    .marquee-container {
-      overflow: hidden;
-      background-color: var(--darker-bg);
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--neon-magenta);
-    }
-    
-    .marquee {
-      display: flex;
-      white-space: nowrap;
-      animation: marquee 20s linear infinite;
-    }
-    
-    @keyframes marquee {
-      0% {
-        transform: translateX(-50%);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-    
-    nav {
-      background-color: rgba(10, 10, 10, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--neon-cyan);
-    }
-    
-    nav a {
-      position: relative;
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem;
-      transition: color 0.3s;
-    }
-    
-    nav a:hover {
-      color: var(--neon-cyan);
-    }
-    
-    nav a:hover::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--neon-cyan);
-      box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
-      animation: pulse 1.5s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.6;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-    
-    section {
-      padding: 4rem 1rem;
-      min-height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    
-    .hacking-service {
-      background-color: rgba(10, 10, 10, 0.7);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hacking-service::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-      animation: scan-line 2s infinite;
-    }
-    
-    @keyframes scan-line {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-    
-    .hacking-service:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
-    }
-    
-    .step-indicator {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    
-    .step {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--darker-bg);
-      position: relative;
-      border: 1px solid #444;
-      cursor: pointer;
-    }
-    
-    .step.active {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 10px var(--neon-cyan);
-    }
-    
-    .step-line {
-      height: 2px;
-      background-color: #444;
-      flex-grow: 1;
-      margin-top: 20px;
-    }
-    
-    .step-line.active {
-      background-color: var(--neon-cyan);
-      box-shadow: 0 0 5px var(--neon-cyan);
-    }
-    
-    .form-step {
-      display: none;
-    }
-    
-    .form-step.active {
-      display: block;
-      animation: fadeIn 0.5s;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .form-control {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid #444;
-      color: #fff;
-      padding: 0.75rem;
-      border-radius: 4px;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    
-    select.form-control {
-      background-color: rgba(20,20,20,0.9);
-      color: #fff;
-      appearance: auto;
-    }
-    
-    select.form-control option {
-      background-color: #121212; 
-      color: #fff;
-    }
-    
-    .form-control:focus {
-      outline: none;
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 5px var(--neon-cyan);
-    }
-    
-    .btn {
-      background-color: transparent;
-      color: #fff;
-      border: 1px solid var(--neon-cyan);
-      padding: 0.75rem 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 1rem;
-    }
-    
-    .btn:hover {
-      background-color: var(--neon-cyan);
-      color: var(--darker-bg);
-      box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
-    }
-    
-    .btn-magenta {
-      border-color: var(--neon-magenta);
-    }
-    
-    .btn-magenta:hover {
-      background-color: var(--neon-magenta);
-      box-shadow: 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta);
-    }
-    
-    .review-card {
-      background-color: rgba(10, 10, 10, 0.7);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      border-top: 2px solid var(--neon-purple);
-      position: relative;
-    }
-    
-    .review-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 50%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--neon-purple));
-    }
-    
-    .star {
-      color: var(--neon-purple);
-    }
-    
-    .typing-effect::after {
-      content: '|';
-      animation: blink 1s infinite;
-    }
-    
-    @keyframes blink {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-    }
-    
-    .recovery-step {
-      position: relative;
-      padding-left: 60px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .recovery-step::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      height: 100%;
-      width: 2px;
-      background-color: var(--neon-magenta);
-    }
-    
-    .recovery-step::after {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 10px;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-      background-color: var(--neon-magenta);
-      box-shadow: 0 0 5px var(--neon-magenta), 0 0 10px var(--neon-magenta);
-    }
-    
-    .glitch-effect {
-      position: relative;
-    }
-    
-    .glitch-effect::before,
-    .glitch-effect::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    
-    .glitch-effect::before {
-      left: 2px;
-      text-shadow: -1px 0 var(--neon-magenta);
-      animation: glitch-anim 3s infinite linear alternate-reverse;
-    }
-    
-    .glitch-effect::after {
-      left: -2px;
-      text-shadow: 1px 0 var(--neon-cyan);
-      animation: glitch-anim 2s infinite linear alternate-reverse;
-    }
-    
-    @keyframes glitch-anim {
-      0% {
-        clip-path: inset(80% 0 20% 0);
-      }
-      20% {
-        clip-path: inset(20% 0 80% 0);
-      }
-      40% {
-        clip-path: inset(60% 0 40% 0);
-      }
-      60% {
-        clip-path: inset(40% 0 60% 0);
-      }
-      80% {
-        clip-path: inset(5% 0 95% 0);
-      }
-      100% {
-        clip-path: inset(90% 0 10% 0);
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-      }
-      
-      nav a {
-        padding: 0.75rem;
-      }
-      
-      .recovery-step {
-        padding-left: 40px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>THE GHOST | Cyber Security & Digital Forensic</title>
+    <meta name="description" content="Elite cyber access, recovery, and forensic services. Starting at $350. Crypto wallet recovery: 21% fee. BTC payments only." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --bg: #0a192f;
+            --surface: #112240;
+            --primary: #64ffda;
+            --secondary: #8892b0;
+            --accent: #0a192f;
+            --text: #ccd6f6;
+            --text-muted: #8892b0;
+            --border: #233554;
+            --glow: 0 0 15px rgba(100, 255, 218, 0.3);
+            --glow-accent: 0 0 15px rgba(100, 255, 218, 0.3);
+            --error: #ff6584;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(100, 255, 218, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.05) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="none" stroke="%2364ffda" stroke-width="1" opacity="0.08" d="M50 100 Q75 80 100 100 T150 100 M50 120 Q75 100 100 120 T150 120"/><circle cx="100" cy="100" r="5" fill="%2364ffda" opacity="0.1"/><rect x="80" y="90" width="40" height="20" fill="none" stroke="%2364ffda" opacity="0.08"/><line x1="20" y1="20" x2="180" y2="180" stroke="%2364ffda" opacity="0.05"/><path d="M30 150 L40 140 L50 150 L60 140 L70 150" fill="none" stroke="%2364ffda" opacity="0.08"/></svg>') repeat;
+            animation: cyber-float 40s infinite linear;
+        }
+
+        @keyframes cyber-float {
+            0% { background-position: 0 0; }
+            100% { background-position: 200px -200px; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--surface);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: var(--text);
+        }
+
+        .neon-text {
+            color: var(--primary);
+            text-shadow: var(--glow);
+            animation: neon-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-glow {
+            from { text-shadow: 0 0 5px rgba(100, 255, 218, 0.2); }
+            to { text-shadow: 0 0 15px rgba(100, 255, 218, 0.5); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            background: rgba(10, 25, 47, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--primary);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: var(--glow);
+        }
+
+        .cta-btn:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: var(--glow-accent);
+            transform: translateY(-2px);
+        }
+
+        .network-animation {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .network-animation svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            animation: blink 2s infinite alternate;
+        }
+
+        .node:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .node:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .node:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s forwards;
+        }
+
+        @keyframes cardFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-card:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        .service-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .crypto-recovery {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid var(--primary);
+        }
+
+        /* Order Pages */
+        .order-process {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border: none;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: #52d8b8;
+            box-shadow: var(--glow-accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        .btc-address {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            word-break: break-all;
+            border: 1px solid var(--primary);
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .error-msg {
+            color: var(--error);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        /* Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s forwards;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .review-meta h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--surface);
+                flex-direction: column;
+                padding: 2rem;
+                transition: 0.4s;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .network-animation {
+                display: none;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Marquee Warning -->
-  <div class="marquee-container">
-    <div class="marquee neon-text-cyan">
-      <span>TURN ON JS FOR FULL FEATURES // VOTED #1 RECOVERY SERVICE 2024 // 100% SUCCESS RATE ON ALL SOCIAL MEDIA RECOVERY // SPECIAL PRICING ON BITCOIN RECOVERY THIS MONTH // FULLY ANONYMOUS SERVICES AVAILABLE // </span>
-      <span>VOTED #1 RECOVERY SERVICE 2024 // 100% SUCCESS RATE ON ALL SOCIAL MEDIA RECOVERY // SPECIAL PRICING ON BITCOIN RECOVERY THIS MONTH // FULLY ANONYMOUS SERVICES AVAILABLE // </span>
-    </div>
-  </div>
+    <div class="cyber-bg"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div>
+                    <div class="logo">THE GHOST</div>
+                    <div class="tagline">Cyber Security & Digital Forensic</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#order">Order</a></li>
+                    <li><a href="#asset-recovery">Asset Recovery</a></li>
+                    <li><a href="#pi-hire">Private Investigator Hire</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-2 nav-container flex justify-between items-center">
-      <div class="text-xl font-bold neon-text-cyan">THE <span class="neon-text-magenta">GHOSTS</span></div>
-      <div class="flex flex-wrap">
-        <a href="#home" class="nav-link">HOME</a>
-        <a href="#hacking" class="nav-link">ABOUT HACKING</a>
-        <a href="#recovery" class="nav-link">ABOUT RECOVERY</a>
-        <a href="#order" class="nav-link">ORDER</a>
-        <a href="#reviews" class="nav-link">REVIEWS</a>
-        <a href="#contact" class="nav-link">CONTACT US</a>
-      </div>
-    </div>
-  </nav>
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="neon-text">Invisible. Untraceable. Digital Mastery.</h1>
+                <p>Welcome to THE GHOST, your trusted partner in advanced cybersecurity and digital forensics. We offer elite services for access, recovery, and investigations, ensuring discretion and efficiency. Starting at <strong style="color:var(--primary);">$350</strong>. Crypto recovery: <strong>21% fee</strong> on funds above $10K. BTC payments only.</p>
+                <a href="#services" class="cta-btn">Explore Our Services</a>
+            </div>
+        </div>
+        <div class="network-animation">
+            <svg viewBox="0 0 400 400">
+                <circle class="node" cx="200" cy="200" r="10" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="100" cy="100" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="300" cy="100" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="100" cy="300" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="300" cy="300" r="8" fill="var(--primary)" opacity="0.5"/>
+                <line x1="200" y1="200" x2="100" y2="100" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="300" y2="100" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="100" y2="300" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="300" y2="300" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+            </svg>
+        </div>
+    </section>
 
-  <!-- Home Section -->
-  <section id="home" class="bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-6xl mb-4">
-        THE <span class="neon-text-magenta">GHOSTS</span> CYBERSERVICES
-      </h1>
-      <div class="w-40 h-1 bg-gradient-to-r from-[#0ff] to-[#f0f] mb-8"></div>
-      <p class="text-xl mb-8 max-w-3xl">Welcome to The Ghosts - Premier Cybersecurity & Recovery Services. Discrete, Reliable, and Secure.</p>
-      <p class="text-gray-400 mb-8 max-w-2xl">The most trusted name in digital solutions when standard methods fail.</p>
-      <div class="flex gap-4">
-        <a href="#hacking" class="btn">Our Services</a>
-        <a href="#recovery" class="btn btn-magenta">Recovery Services</a>
-      </div>
-    </div>
-  </section>
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Complete Service Catalog</h2>
 
-  <!-- About Hacking Section -->
-  <section id="hacking" class="bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl mb-4 neon-text-cyan">OUR SERVICES</h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-[#0ff] to-transparent mb-8"></div>
-      <p class="text-gray-300 mb-8">We provide professional, reliable services for all your digital needs. Our expert team delivers results where others fail.</p>
-
-      <div class="mb-8">
-        <h3 class="text-xl font-bold neon-text-purple mb-6">What Is Ethical Hacking?</h3>
-        <p class="text-gray-300 mb-6">Ethical hacking is the authorized practice of probing systems, applications, and networks to identify security vulnerabilities before malicious actors can exploit them.</p>
-        <h3 class="text-xl font-bold neon-text-purple mb-6">A Brief History</h3>
-        <p class="text-gray-300 mb-6">Since the 1970s, hacking has evolved from academic experimentation to a cornerstone of modern cybersecurity. Early pioneers at universities discovered system vulnerabilities; today, ethical hackers use advanced techniques to strengthen digital defenses.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Social Media Account Access & Recovery <span class="float-right">?550</span></h3>
-          <p class="text-gray-300">Secure access to any social media account with our advanced techniques. 100% success rate guaranteed.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Email Account Access & Recovery<span class="float-right">?650</span></h3>
-          <p class="text-gray-300">Full access to target email accounts regardless of service provider or security measures.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">WhatsApp Account Access & Recovery <span class="float-right">?750</span></h3>
-          <p class="text-gray-300">Workflow showing messaging app security flaws and best practices for secure communications.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Phone Tracking <span class="float-right">?850</span></h3>
-          <p class="text-gray-300">Demonstration of location tracking vulnerabilities and how to protect personal privacy.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Website Vulnerability Assessment <span class="float-right">?1,200</span></h3>
-          <p class="text-gray-300">Analysis of common web vulnerabilities with penetration testing examples.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">IP Camera Access <span class="float-right">?1,500</span></h3>
-          <p class="text-gray-300">IOT security focusing on camera systems and securing network-connected devices.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Password Cracking <span class="float-right">?650</span></h3>
-          <p class="text-gray-300">Analysis of dating app security with focus on privacy protection and personal data security.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">WiFi Network Assessment <span class="float-right">?2,000</span></h3>
-          <p class="text-gray-300">Wireless network vulnerabilities and hardening techniques.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Password Recovery <span class="float-right">?1,100</span></h3>
-          <p class="text-gray-300">Password security with demonstrations of common cracking methods and protection strategies.</p>
-        </div>
-
-        <div class="hacking-service neon-border">
-          <h3 class="text-xl font-bold mb-2 neon-text-cyan">Advanced Security Assessment <span class="float-right">?3,500</span></h3>
-          <p class="text-gray-300">Comprehensive package covering multiple security aspect.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Recovery Section -->
-  <section id="recovery" class="bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl mb-4 neon-text-magenta">CRYPTO RECOVERY SERVICES</h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-[#f0f] to-transparent mb-8"></div>
-      <p class="text-gray-300 mb-8">Our professional crypto recovery service works with amounts ? ?10,000. We charge a standard 20% service fee on successful recovery only.A 50% upfront commitment fee shall be deposited to facilitate task booking and starting.</p>
-
-      <div class="max-w-3xl mx-auto">
-        <div class="recovery-step">
-          <h3 class="text-xl font-bold mb-2 neon-text-magenta">1. Report</h3>
-          <p class="text-gray-300">We collect all necessary information including wallet addresses, transaction hashes, and timeline of events.</p>
-        </div>
-
-        <div class="recovery-step">
-          <h3 class="text-xl font-bold mb-2 neon-text-magenta">2. Analysis</h3>
-          <p class="text-gray-300">Our experts perform advanced blockchain forensics, transaction tracing, and pattern analysis to track your funds.</p>
-        </div>
-
-        <div class="recovery-step">
-          <h3 class="text-xl font-bold mb-2 neon-text-magenta">3. Extraction</h3>
-          <p class="text-gray-300">We deploy proprietary methods to secure access to your funds and prepare for safe transfer back to your control.</p>
-        </div>
-
-        <div class="recovery-step">
-          <h3 class="text-xl font-bold mb-2 neon-text-magenta">4. Confirmation</h3>
-          <p class="text-gray-300">We complete the recovery process and return assets minus the 50 % balance fee, with full verification and documentation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Order Section -->
-  <section id="order" class="bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl mb-4 neon-text-cyan">ORDER SERVICE</h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-[#0ff] to-transparent mb-8"></div>
-      <p class="text-gray-300 mb-8">Complete this form to request our professional services.</p>
-
-      <div class="max-w-3xl mx-auto neon-border p-8 rounded-lg bg-[rgba(10,10,10,0.8)]">
-        <div class="step-indicator">
-          <div class="step active" data-step="1">1</div>
-          <div class="step-line"></div>
-          <div class="step" data-step="2">2</div>
-          <div class="step-line"></div>
-          <div class="step" data-step="3">3</div>
-          <div class="step-line"></div>
-          <div class="step" data-step="4">4</div>
-          <div class="step-line"></div>
-          <div class="step" data-step="5">5</div>
-          <div class="step-line"></div>
-          <div class="step" data-step="6">6</div>
-        </div>
-
-        <form id="order-form">
-          <!-- Step 1: Select Service Type -->
-          <div class="form-step active" data-step="1">
-            <h3 class="text-xl mb-4 neon-text-cyan">Select Service Type</h3>
-            <div class="flex flex-col gap-4">
-              <div class="p-4 border border-gray-700 rounded-lg cursor-pointer service-type-option hover:neon-border" data-value="hacking">
-                <h4 class="text-lg font-bold">Hacking</h4>
-                <p class="text-gray-400">Various security vulnerabilities</p>
-              </div>
-              <div class="p-4 border border-gray-700 rounded-lg cursor-pointer service-type-option hover:neon-border-magenta" data-value="recovery">
-                <h4 class="text-lg font-bold">Recovery </h4>
-                <p class="text-gray-400">Crypto recovery processes</p>
-              </div>
-            </div>
-            <div class="flex justify-end mt-6">
-              <button type="button" class="btn next-step">NEXT</button>
-            </div>
-          </div>
-
-          <!-- Step 2: Choose Specific Service -->
-          <div class="form-step" data-step="2">
-            <h3 class="text-xl mb-4 neon-text-cyan">Choose Specific Service</h3>
-            
-            <div id="hacking-services" style="display:none;">
-              <select class="form-control" id="hacking-service-select">
-                <option value="">Select a hacking ...</option>
-                <option value="social">Social Media Account Access & Recovery - ?550</option>
-                <option value="email">Email Account Access & Recovery - ?650</option>
-                <option value="whatsapp">WhatsApp Account Access & Recovery - ?750</option>
-                <option value="phone">Phone Tracking - ?850</option>
-                <option value="website">Website Vulnerability Assessment - ?1,200</option>
-                <option value="camera">IP Camera Access - ?1,500</option>
-                <option value="dating">Password Cracking - ?650</option>
-                <option value="wifi">WiFi Network Assessment - ?2,000</option>
-                <option value="password">Password Recovery - ?1,100</option>
-                <option value="advanced">Advanced Security Assessment - ?3,500</option>
-              </select>
-            </div>
-            
-            <div id="recovery-services" style="display:none;">
-              <select class="form-control" id="recovery-service-select">
-                <option value="">Select a recovery simulation...</option>
-                <option value="bitcoin">Bitcoin Recovery</option>
-                <option value="ethereum">Ethereum Recovery</option>
-                <option value="tether">Tether Recovery</option>
-                <option value="xrp">XRP Recovery</option>
-                <option value="other">Other Cryptocurrency</option>
-              </select>
-            </div>
-            
-            <div class="flex justify-between mt-6">
-              <button type="button" class="btn prev-step">BACK</button>
-              <button type="button" class="btn next-step">NEXT</button>
-            </div>
-          </div>
-
-          <!-- Step 3: Target Details -->
-          <div class="form-step" data-step="3">
-            <h3 class="text-xl mb-4 neon-text-cyan">Target Details</h3>
-            
-            <div id="hacking-details" style="display:none;">
-              <div class="mb-4">
-                <label for="target-handle" class="block mb-2">Target Handle/Username</label>
-                <input type="text" id="target-handle" class="form-control" placeholder="Enter target username">
-              </div>
-            </div>
-            
-            <div id="recovery-details" style="display:none;">
-              <div class="mb-4">
-                <label for="wallet-address" class="block mb-2">Wallet Address</label>
-                <input type="text" id="wallet-address" class="form-control" placeholder="Enter wallet address">
-              </div>
-              <div class="mb-4">
-                <label for="loss-amount" class="block mb-2">Loss Amount (?)</label>
-                <input type="number" id="loss-amount" class="form-control" min="10000" placeholder="Amount must be ? ?10,000">
-              </div>
-            </div>
-            
-            <div class="mb-4">
-              <label for="contact-email" class="block mb-2">Contact Email</label>
-              <input type="email" id="contact-email" class="form-control" placeholder="Your email address">
-            </div>
-            
-            <div class="flex justify-between mt-6">
-              <button type="button" class="btn prev-step">BACK</button>
-              <button type="button" class="btn next-step">NEXT</button>
-            </div>
-          </div>
-
-          <!-- Step 4: Order Summary -->
-          <div class="form-step" data-step="4">
-            <h3 class="text-xl mb-4 neon-text-cyan">Order Summary</h3>
-            
-            <div class="p-6 bg-[rgba(0,0,0,0.3)] rounded-lg">
-              <div id="summary-service-type" class="mb-2">Service Type: <span class="neon-text-cyan">--</span></div>
-              <div id="summary-service" class="mb-2">Specific Service: <span class="neon-text-cyan">--</span></div>
-              <div id="summary-target" class="mb-2">Target: <span class="neon-text-cyan">--</span></div>
-              <div id="summary-email" class="mb-2">Contact: <span class="neon-text-cyan">--</span></div>
-              <div id="summary-price" class="text-xl mt-4">Total: <span class="neon-text-magenta">--</span></div>
-              <div id="recovery-fee-explanation" class="text-sm text-gray-400 mt-2" style="display:none;">
-                (20% of reported loss amount)
-              </div>
-            </div>
-            
-            <div class="flex justify-between mt-6">
-              <button type="button" class="btn prev-step">BACK</button>
-              <button type="button" class="btn next-step">CONFIRM & PAY</button>
-            </div>
-          </div>
-
-          <!-- Step 5: Payment Information -->
-          <div class="form-step" data-step="5">
-            <h3 class="text-xl mb-4 neon-text-cyan">Payment Information</h3>
-            
-            <div class="p-6 bg-[rgba(0,0,0,0.3)] rounded-lg mb-6">
-              <p class="mb-4">Please send payment to the following Bitcoin address:</p>
-              <div class="p-3 bg-black rounded font-mono break-all neon-border mb-4">
-              bc1qderr976tafn0uux4cn4jj2dj53mkaqxep6sr8y
- 
-              </div>
-              <p class="text-sm text-gray-400">
-                Amount to send: <span id="payment-amount" class="neon-text-magenta">--</span>
-              </p>
-            </div>
-            
-            <div class="text-gray-400 text-sm mb-4">
-              <p class="mb-2">- Transaction may take up to 30 minutes to be confirmed on the blockchain</p>
-              <p>- After sending payment, click Next to check transaction status</p>
-            </div>
-            
-            <div class="flex justify-between mt-6">
-              <button type="button" class="btn prev-step">BACK</button>
-              <button type="button" class="btn next-step">NEXT</button>
-            </div>
-          </div>
-
-          <!-- Step 6: Transaction Status -->
-          <div class="form-step" data-step="6">
-            <h3 class="text-xl mb-4 neon-text-cyan">Transaction Status</h3>
-            
-            <div class="p-6 bg-[rgba(0,0,0,0.3)] rounded-lg mb-6">
-              <div class="flex items-center mb-4">
-                <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-500 mr-3"></div>
-                <span>Checking transaction status...</span>
-              </div>
-              
-              <div class="h-4 bg-gray-700 rounded overflow-hidden">
-                <div class="h-full bg-gradient-to-r from-cyan-500 to-purple-500 w-1/3 animate-pulse"></div>
-              </div>
-              
-              <p class="text-sm text-gray-400 mt-4 animate-pulse">
-                <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
-                Do not refresh this page; progress will be lost
-              </p>
-            </div>
-            
-            <div class="flex justify-between mt-6">
-              <button type="button" class="btn prev-step">BACK</button>
-              <button type="button" class="btn" disabled>CHECKING...</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section id="reviews" class="bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl mb-4 neon-text-purple">REVIEWS</h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-[#b19cd9] to-transparent mb-8"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">CyberSleuth92</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Great resource for understanding vulnerabilities. Incredibly detailed simulation with practical advice.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">NetRunner404</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>Eye-opening that helped me identify weaknesses in my security approach. Very professional team.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">DataGuardian</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Used their service for research purposes. Comprehensive analysis and educational value was outstanding.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">CryptoDefender</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="far fa-star"></i></span>
-            </div>
-          </div>
-          <p>The recovery showed exactly how my funds could have been traced. Extremely valuable.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">SecureNode7</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Perfect for my cybersecurity course. The demonstrations were clear and highlighted important security concepts.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">BinaryPhoenix</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>As a security researcher, this service provided excellent insights into attack methods. Would recommend to colleagues.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">CodeShielder</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Used for my digital forensics research. The hacking environment was incredibly detailed and educational.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">QuantumDefense</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>It helped me understand vulnerabilities in my systems. Great resource for security professionals.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">FirewallMaster</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="far fa-star"></i></span>
-            </div>
-          </div>
-          <p>Helped identify weaknesses in our test environment. Great tool for our security team.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">CipherExpert</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Perfect for my cybersecurity research.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">GridProtector</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>Used their tools for the purposes of our security workshop. Very comprehensive and detailed.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">EncryptionNinja</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Excellent resource for my security research. The demonstrations revealed vulnerabilities I hadn't considered.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">SecureVector</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="far fa-star"></i></span>
-            </div>
-          </div>
-          <p>Great educational insights on security vulnerabilities. Helped strengthen our defensive strategies.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">ByteShield</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>Used in our academic research on security threats. Provided valuable insights for our cybersecurity curriculum.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">NeuralGuard</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Perfect for my security research. Detailed technical insights and educational value.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">DataSentinel</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>Excellent educational resource for security professionals. Clear explanations of vulnerability exploits.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">ThreatHunter</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="far fa-star"></i></span>
-            </div>
-          </div>
-          <p>Used their simulations for research purposes. Good overview of potential security threats.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">DigitalFortress</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>Incredibly detailed simulations that helped with my security research project. Highly recommended for educational purposes.</p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">ShieldMatrix</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-            </div>
-          </div>
-          <p>As a security researcher, the tools provided valuable insights into attack vectors. </p>
-        </div>
-        
-        <div class="review-card">
-          <div class="flex items-center mb-2">
-            <div class="text-lg font-bold">PatchMaster</div>
-            <div class="ml-auto">
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star"></i></span>
-              <span class="star"><i class="fas fa-star-half-alt"></i></span>
-            </div>
-          </div>
-          <p>Great for the purposes in our cybersecurity lab. The services were detailed and informative.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl mb-4 neon-text-cyan">CONTACT US</h2>
-      <div class="w-32 h-1 bg-gradient-to-r from-[#0ff] to-transparent mb-8"></div>
-
-      <div class="max-w-3xl mx-auto">
-        <div class="mb-8 text-center">
-          <p class="text-xl neon-text-cyan mb-2">theghostcyber@tuta.io</p>
-          <p class="text-gray-300">Contact us for service inquiries and custom solutions.</p>
-        </div>
-
-        <form 
+            <!-- Account Hacking and Access -->
+            <h3 class="category-title">Account Hacking and Access Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart service-icon"></i>
+                    <h3>Walmart Account Hacking (with CC)</h3>
+                    <p>Secure access to Walmart profiles linked with payment information for comprehensive control and data extraction.</p>
+                    <div class="price">$400</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hashtag service-icon"></i>
+                    <h3>Social Media Account Access & Recovery</h3>
+                    <p>Full control over platforms like Instagram, Facebook, TikTok, Snapchat, Twitter/X, including recovery from lost access.</p>
+                    <div class="price">$450</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-envelope service-icon"></i>
+                    <h3>Email Account Access & Recovery</h3>
+                    <p>Inbox takeover for Gmail, Outlook, Yahoo, ProtonMail, with options for data archiving and secure recovery.</p>
+                    <div class="price">$550</div>
+                </div>
+                <div class="service-card">
+                    <i class="fab fa-whatsapp service-icon"></i>
+                    <h3>WhatsApp Account Access & Recovery</h3>
+                    <p>Access to full chat history, media files, and deleted messages, with recovery capabilities.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt service-icon"></i>
+                    <h3>Phone Tracking</h3>
+                    <p>Real-time GPS location, call logs, SMS monitoring, and app activity tracking for comprehensive device surveillance.</p>
+                    <div class="price">$750</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-desktop service-icon"></i>
+                    <h3>RDP Server Access</h3>
+                    <p>Remote desktop protocol access to compromised servers for data retrieval and control.</p>
+                    <div class="price">$1,100</div>
+                </div>
           
-       
-        </form>
-      </div>
-    </div>
-  </section>
+                <div class="service-card">
+                    <i class="fas fa-key service-icon"></i>
+                    <h3>Password Cracking</h3>
+                    <p>Advanced cracking using Hashcat, JohnTheRipper, and custom wordlists for secure password retrieval.</p>
+                    <div class="price">$350</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>Password Recovery</h3>
+                    <p>Recovery for Windows, macOS, Linux, BIOS, and encrypted drives using specialized tools.</p>
+                    <div class="price">$1,100</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home service-icon"></i>
+                    <h3>Smart Home Control</h3>
+                    <p>Control over Nest, Ring, Alexa devices including lights, locks, and cameras for integrated smart home management.</p>
+                    <div class="price">$1,300</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car service-icon"></i>
+                    <h3>GPS Vehicle Tracking</h3>
+                    <p>Live location tracking for OBD-II, Tesla, and fleet vehicles with detailed reporting.</p>
+                    <div class="price">$1,050</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Website Vulnerability Assessment</h3>
+                    <p>Full pentest report covering SQLi, XSS, RCE vulnerabilities for website security.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-credit-card service-icon"></i>
+                    <h3>PayPal Account Logs & Cookies Hacking</h3>
+                    <p>Access to PayPal wallets with balances above $5,500 using logs and cookies.</p>
+                    <div class="price">$550</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-camera service-icon"></i>
+                    <h3>IP Camera Access</h3>
+                    <p>Live feed and recordings from any IoT camera for surveillance purposes.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-exchange-alt service-icon"></i>
+                    <h3>Crypto Exchange Account Recovery</h3>
+                    <p>Recovery for Binance, Coinbase, Kraken with 2FA bypass and API key access.</p>
+                    <div class="price">$1,800</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wifi service-icon"></i>
+                    <h3>WiFi Network Assessment</h3>
+                    <p>WPA2/3 cracking, rogue AP detection, and MITM analysis for network security.</p>
+                    <div class="price">$1,100</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-university service-icon"></i>
+                    <h3>Bank Account Access</h3>
+                    <p>Credentials, history, and transfers for balances above $4,900.</p>
+                    <div class="price">$1,200</div>
+                </div>
+            </div>
 
-  <footer class="bg-[#0a0a0a] py-6 border-t border-[#222]">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-500 mb-2">THE GHOSTS CYBERSERVICES</p>
-      <p class="text-gray-600 text-sm">� 2026 - Discrete & Confidential</p>
-    </div>
-  </footer>
+            <!-- Data Theft -->
+            <h3 class="category-title">Data Theft and Stolen Credentials</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-credit-card service-icon"></i>
+                    <h3>Stolen Credit Card Details (with CVV)</h3>
+                    <p>Full card information including PIN for immediate and secure use.</p>
+                    <div class="price">$195</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-id-card service-icon"></i>
+                    <h3>SSN (Social Security Number)</h3>
+                    <p>Single US SSN for setting up fraudulent accounts or identities.</p>
+                    <div class="price">$360</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-folder-open service-icon"></i>
+                    <h3>Fullz (Complete Identity Kit)</h3>
+                    <p> Bundled data including name, SSN, DOB for complete identity theft.</p>
+                    <div class="price">$500</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-piggy-bank service-icon"></i>
+                    <h3>Stolen Bank Login Credentials</h3>
+                    <p>Verified credentials with balances over $1,200 for access.</p>
+                    <div class="price">$450</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-id-badge service-icon"></i>
+                    <h3>US Driver's License Scan</h3>
+                    <p>High-quality forged or stolen digital scans for verification purposes.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport service-icon"></i>
+                    <h3>US Passport Scan</h3>
+                    <p>Premium fake or stolen passport images for identity verification.</p>
+                    <div class="price">$1,000</div>
+                </div>
+            </div>
 
-  <script id="app-script">
-    // Navigation smooth scrolling
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        window.scrollTo({
-          top: targetElement.offsetTop - 70,
-          behavior: 'smooth'
+            <!-- Recovery and Tracking -->
+            <h3 class="category-title">Recovery and Tracking Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search-location service-icon"></i>
+                    <h3>IP Address Tracking and Location Service</h3>
+                    <p>Precise tracing of IP to physical locations for targeted operations or doxxing.</p>
+                    <div class="price">$950</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-undo service-icon"></i>
+                    <h3>Account Recovery Service</h3>
+                    <p>Social engineering-based recovery for social media and email accounts.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>Recovery of Scammed Funds & Valuable Items</h3>
+                    <p>Expert recovery of funds from bank accounts, wire transfers, and valuables like cars or jewelry above $10K.</p>
+                    <div class="price">21% of Recovered.</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lock-open service-icon"></i>
+                    <h3>Ransomware Decryption</h3>
+                    <p>Private key recovery for REvil, Conti, LockBit ransomware variants.</p>
+                    <div class="price">$2,900</div>
+                </div>
+            </div>
+
+            <!-- Malware and Exploits -->
+            <h3 class="category-title">Malware and Exploit Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Infostealer Malware Subscription</h3>
+                    <p>Monthly access to tools for harvesting credentials from targeted systems.</p>
+                    <div class="price">$1,124</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-skull-crossbones service-icon"></i>
+                    <h3>Ransomware-as-a-Service</h3>
+                    <p>Ready-to-deploy ransomware with command and control panel for 1 month.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3>Custom Malware Development</h3>
+                    <p>Tailored viruses or trojans designed for specific targets and objectives.</p>
+                    <div class="price">$3,188</div>
+                </div>
+            </div>
+
+            <!-- Attack and Disruption -->
+            <h3 class="category-title">Attack and Disruption Services</h3>
+            <div class="services-grid">
+      
+               <div class="service-card">
+                    <i class="fas fa-clock service-icon"></i>
+                    <h3>DDoS Attack (24 Hours)</h3>
+                    <p>Extended denial of service for unprotected targets to cause downtime.</p>
+                    <div class="price">$450</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>DDoS Attack (Per Hour, Protected)</h3>
+                    <p>Bypassing protections for targeted disruption per hour.</p>
+                    <div class="price">$2,600</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Computer/Phone Hacking</h3>
+                    <p>Remote access through exploits for devices.</p>
+                    <div class="price">$2,430</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Website Hacking (Full Compromise)</h3>
+                    <p>Code injection or data theft for complete website compromise.</p>
+                    <div class="price">$2,940</div>
+                </div>
+            </div>
+
+            <!-- Specialized -->
+            <h3 class="category-title">Specialized or Niche Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user-graduate service-icon"></i>
+                    <h3>Changing School/University Grades</h3>
+                    <p>Database hacks to alter academic records securely.</p>
+                    <div class="price">$2,260</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>Debt/Credit Report Manipulation</h3>
+                    <p>Falsification of financial records for credit improvement.</p>
+                    <div class="price">$1,570</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-secret service-icon"></i>
+                    <h3>Personal Doxxing Attack</h3>
+                    <p>Exposure of private information for targeted harassment.</p>
+                    <div class="price">$3,510</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building service-icon"></i>
+                    <h3>Small Business Full Access</h3>
+                    <p>Complete compromise of small business networks.</p>
+                    <div class="price">$4,000</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cog service-icon"></i>
+                    <h3>Corporate Email Takeover</h3>
+                    <p>Admin rights takeover for Office 365, GSuite.</p>
+                    <div class="price">$2,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users-cog service-icon"></i>
+                    <h3>Corporate Domain Admin Access</h3>
+                    <p>High-privilege access to company systems.</p>
+                    <div class="price">$4,000</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-video service-icon"></i>
+                    <h3>Deepfake Video Creation</h3>
+                    <p>Custom 4K videos with face-swap and voice cloning.</p>
+                    <div class="price">$3,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-medical service-icon"></i>
+                    <h3>Complete Medical Record</h3>
+                    <p>Full health data access for sensitive operations.</p>
+                    <div class="price">$4,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport service-icon"></i>
+                    <h3>EU Passport (Physical Forgery)</h3>
+                    <p>High-end physical fake documents for border use.</p>
+                    <div class="price">$4,800</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Zero-Day Exploit (Premium)</h3>
+                    <p>Undiscovered software vulnerabilities for advanced attacks.</p>
+                    <div class="price">$80,000</div>
+                </div>
+            </div>
+
+            <!-- Tutorials & Tools -->
+            <h3 class="category-title">Tutorials & Tools</h3>
+            <div class="services-grid">
+
+                <!-- Tool 1 -->
+                <div class="service-card">
+                    <i class="fas fa-book-open service-icon"></i>
+                    <h3>Full OSINT Mastery Course</h3>
+                    <p>7-day video course covering Maltego, Recon-ng, Shodan, IntelX, Google Dorks with scripts and templates included for practical application.</p>
+                    <div class="price">$1,200</div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="service-card">
+                    <i class="fas fa-terminal service-icon"></i>
+                    <h3>Custom Phishing Kit (2025)</h3>
+                    <p>Evasion-ready kit with Evilginx2, Gophish, custom templates, anti-bot bypass, full source code, and setup guide.</p>
+                    <div class="price">$2,500</div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="service-card">
+                    <i class="fas fa-fingerprint service-icon"></i>
+                    <h3>Fingerprint Spoofing Suite</h3>
+                    <p>Browser fingerprint changer for Canvas, WebGL, Fonts, Audio, undetectable by Cloudflare and Akamai.</p>
+                    <div class="price">$950</div>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Exploit Development Bootcamp</h3>
+                    <p>Training on buffer overflow, ROP, kernel exploits for Windows/Linux, with 5 live sessions, labs, and private exploit DB access.</p>
+                    <div class="price">$3,800</div>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="service-card">
+                    <i class="fas fa-keyboard service-icon"></i>
+                    <h3>Keylogger + Remote Installer</h3>
+                    <p>Stealth keylogger for Windows/macOS that bypasses AV, with C2 panel and auto-exfiltration features.</p>
+                    <div class="price">$1,800</div>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="service-card">
+                    <i class="fas fa-shield-virus service-icon"></i>
+                    <h3>AV Evasion Framework</h3>
+                    <p>Packers, crypters, obfuscators compatible with Defender, Kaspersky, Bitdefender, updated weekly.</p>
+                    <div class="price">$2,200</div>
+                </div>
+
+                <!-- Tool 7 -->
+                <div class="service-card">
+                    <i class="fas fa-satellite-dish service-icon"></i>
+                    <h3>SMS & Call Spoofing Tool</h3>
+                    <p>Unlimited spoofing in 180+ countries with web panel and API integration.</p>
+                    <div class="price">$1,500</div>
+                </div>
+
+                <!-- Tool 8 -->
+                <div class="service-card">
+                    <i class="fas fa-code-branch service-icon"></i>
+                    <h3>Cobalt Strike License (Cracked)</h3>
+                    <p>Full C2 framework with Beacon, Malleable C2, Aggressor scripts for 6-month access.</p>
+                    <div class="price">$6,500</div>
+                </div>
+
+                <!-- Tool 9 -->
+                <div class="service-card">
+                    <i class="fas fa-wrench service-icon"></i>
+                    <h3>Metasploit Pro (Lifetime)</h3>
+                    <p>Lifetime access with GUI, reporting, web exploits, and post-exploitation modules.</p>
+                    <div class="price">$4,200</div>
+                </div>
+
+                <!-- Tool 10 -->
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Private RDP + VPS Setup Guide</h3>
+                    <p>Step-by-step guide for anonymity, OPSEC, clean IP, root access, with config files included.</p>
+                    <div class="price">$750</div>
+                </div>
+                <!-- PASTE BELOW THIS LINE -->
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap service-icon"></i>
+                    <h3>Full Introduction To Hacking Mastery Course</h3>
+                    <p>Beginner to intermediate course covering Kali Linux, Nmap, Metasploit, Burp Suite, SQLi, XSS with 40+ hours of video and labs.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Full Middle-Level Hacking Mastery Course</h3>
+                    <p>Advanced training on buffer overflow, reverse engineering, exploit development, post-exploitation, privilege escalation with real-world CTFs.</p>
+                    <div class="price">$1,300</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-ninja service-icon"></i>
+                    <h3>Full Pro-Level Hacking Mastery Course</h3>
+                    <p>Elite level course on zero-days, kernel exploits, red team operations, C2 frameworks, stealth persistence with private mentorship.</p>
+                    <div class="price">$2,500</div>
+                </div>
+            </div>
+
+            <!-- Crypto Recovery -->
+            <h3 class="category-title">Crypto Wallet Recovery Services (Funds > $10K)</h3>
+            <div class="services-grid">
+                <div class="service-card crypto-recovery">
+                    <i class="fab fa-bitcoin service-icon"></i>
+                    <h3>BTC Wallet Recovery</h3>
+                    <p>Recovery of lost Bitcoin wallets with funds above $10K using advanced techniques.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fab fa-ethereum service-icon"></i>
+                    <h3>ETH Wallet Recovery</h3>
+                    <p>Ethereum wallet restoration for balances over $10K.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-coins service-icon"></i>
+                    <h3>SOL Wallet Recovery</h3>
+                    <p>Solana wallet recovery for $10K+ balances.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-coins service-icon"></i>
+                    <h3>XMR Wallet Recovery</h3>
+                    <p>Monero wallet recovery for $10K+ balances.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-dollar-sign service-icon"></i>
+                    <h3>USDT Wallet Recovery</h3>
+                    <p>Tether (USDT) wallet recovery for $10K+.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asset Recovery -->
+    <section id="asset-recovery">
+        <div class="container">
+            <h2 class="section-title">Asset Recovery Services</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">Our asset recovery services specialize in retrieving lost or scammed assets through advanced digital forensics and cybersecurity techniques. All recoveries for funds above $10K are charged at 21% of the recovered amount. We handle various scenarios including crypto scams, bank fraud, and physical asset theft with high success rates.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fab fa-bitcoin service-icon"></i>
+                    <h3>Cryptocurrency Wallet Recovery</h3>
+                    <p>Expert recovery of lost or inaccessible crypto wallets including BTC, ETH, SOL, XMR, XRP, USDT, and more using seed phrase analysis and blockchain forensics.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-university service-icon"></i>
+                    <h3>Bank Account and Wire Transfer Recovery</h3>
+                    <p>Tracing and recovering funds from fraudulent bank transfers or unauthorized access through financial forensics and legal channels.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem service-icon"></i>
+                    <h3>Valuable Items Recovery (e.g., Cars, Jewelry)</h3>
+                    <p>Using digital tracking, GPS forensics, and investigative techniques to locate and recover physical valuables lost to scams or theft.</p>
+                    <div class="price">21% of Recovered Value (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-exchange-alt service-icon"></i>
+                    <h3>Investment Scam Recovery</h3>
+                    <p>Recovery from fake investment schemes, Ponzi operations, or fraudulent trading platforms via transaction tracing and asset seizure.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lock service-icon"></i>
+                    <h3>Ransomware Asset Recovery</h3>
+                    <p>Decryption of locked assets without paying ransom, using private key recovery and malware analysis.</p>
+                    <div class="price">$2,900 + 21% if Additional Funds Recovered</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>General Scammed Funds Recovery</h3>
+                    <p>Comprehensive service for any financial scam involving digital transactions, with multi-layered forensic investigation.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Investigator Hire -->
+    <section id="pi-hire">
+        <div class="container">
+            <h2 class="section-title">Private Investigator Hire Services</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">Our licensed private investigators offer discreet services combining traditional fieldwork with digital forensics. Prices vary based on case complexity, duration, and location. We handle personal, corporate, and legal investigations with full confidentiality.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search service-icon"></i>
+                    <h3>Background Checks</h3>
+                    <p>In-depth checks covering criminal records, employment history, education verification, and social media deep dives for risk assessment.</p>
+                    <div class="price">$500 - $2,000 (Flat Fee)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-eye service-icon"></i>
+                    <h3>Surveillance</h3>
+                    <p>Physical tailing, digital monitoring, and video evidence collection for activity tracking over specified periods.</p>
+                    <div class="price">$100 - $200 per Hour</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-heart-broken service-icon"></i>
+                    <h3>Infidelity Investigations</h3>
+                    <p>Discreet evidence gathering on suspected cheating, including surveillance, digital forensics, and report compilation.</p>
+                    <div class="price">$1,500 - $5,000 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-friends service-icon"></i>
+                    <h3>Missing Persons Locate</h3>
+                    <p>Using OSINT, database searches, and on-ground investigations to locate missing individuals efficiently.</p>
+                    <div class="price">$2,000 - $4,000 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-pie service-icon"></i>
+                    <h3>Asset Searches</h3>
+                    <p>Tracing hidden assets like bank accounts, properties, and investments for divorce or debt recovery cases.</p>
+                    <div class="price">$1,500 - $3,000 (Flat Fee)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Social Media Investigations</h3>
+                    <p>Analysis of profiles, connections, posts, and deleted content for evidence in legal or personal matters.</p>
+                    <div class="price">$1,500 - $3,500 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase service-icon"></i>
+                    <h3>Corporate Espionage Investigations</h3>
+                    <p>Identifying leaks, counter-espionage measures, and internal threat assessments for businesses.</p>
+                    <div class="price">$3,000+ (Custom Quote)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-child service-icon"></i>
+                    <h3>Child Custody Investigations</h3>
+                    <p>Evidence on parental fitness, living conditions, and behaviors to support custody cases.</p>
+                    <div class="price">$2,000 - $5,000 (Package)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order">
+        <div class="container">
+            <h2 class="section-title">Place Your Order</h2>
+            <div class="order-process">
+                <!-- Step 1: Service Selection -->
+                <div class="step active" id="step1">
+                    <h3>Select Service</h3>
+                    <div class="form-group">
+                        <label>Service Required</label>
+                        <select id="serviceSelect" required>
+                            <option value="">Choose a service...</option>
+                            <!-- Original services -->
+                            <option value="Walmart Account Hacking (with CC)|$400">Walmart Account Hacking (with CC) - $400</option>
+                            <option value="Social Media Account Access & Recovery|$450">Social Media Account Access & Recovery - $450</option>
+                            <option value="Email Account Access & Recovery|$550">Email Account Access & Recovery - $550</option>
+                            <option value="WhatsApp Account Access & Recovery|$650">WhatsApp Account Access & Recovery - $650</option>
+                            <option value="Phone Tracking|$750">Phone Tracking - $750</option>
+                            <option value="RDP Server Access|$1,100">RDP Server Access - $1,100</option>
+                            <option value="Password Cracking|$350">Password Cracking - $350</option>
+                            <option value="Password Recovery|$1,100">Password Recovery - $1,100</option>
+                            <option value="Smart Home Control|$1,300">Smart Home Control - $1,300</option>
+                            <option value="GPS Vehicle Tracking|$1,050">GPS Vehicle Tracking - $1,050</option>
+                            <option value="Website Vulnerability Assessment|$1,200">Website Vulnerability Assessment - $1,200</option>
+                            <option value="PayPal Account Logs & Cookies Hacking|$550">PayPal Account Logs & Cookies Hacking - $550</option>
+                            <option value="IP Camera Access|$1,200">IP Camera Access - $1,200</option>
+                            <option value="Crypto Exchange Account Recovery|$1,800">Crypto Exchange Account Recovery - $1,800</option>
+                            <option value="WiFi Network Assessment|$1,100">WiFi Network Assessment - $1,100</option>
+                            <option value="Bank Account Access|$1,200">Bank Account Access - $1,200</option>
+                            <option value="Stolen Credit Card Details (with CVV)|$195">Stolen Credit Card Details (with CVV) - $195</option>
+                            <option value="SSN (Social Security Number)|$360">SSN (Social Security Number) - $360</option>
+                            <option value="Fullz (Complete Identity Kit)|$500">Fullz (Complete Identity Kit) - $500</option>
+                            <option value="Stolen Bank Login Credentials|$450">Stolen Bank Login Credentials - $450</option>
+                            <option value="US Driver's License Scan|$650">US Driver's License Scan - $650</option>
+                            <option value="US Passport Scan|$1,000">US Passport Scan - $1,000</option>
+                            <option value="IP Address Tracking and Location Service|$950">IP Address Tracking and Location Service - $950</option>
+                            <option value="Account Recovery Service|$1,200">Account Recovery Service - $1,200</option>
+                            <option value="Recovery of Scammed Funds & Valuable Items|21% of Recovered">Recovery of Scammed Funds & Valuable Items - 21% of Recovered</option>
+                            <option value="Ransomware Decryption|$2,900">Ransomware Decryption - $2,900</option>
+                            <option value="Infostealer Malware Subscription|$1,124">Infostealer Malware Subscription - $1,124</option>
+                            <option value="Ransomware-as-a-Service|$1,200">Ransomware-as-a-Service - $1,200</option>
+                            <option value="Custom Malware Development|$3,188">Custom Malware Development - $3,188</option>
+                            <option value="DDoS Attack (24 Hours)|$450">DDoS Attack (24 Hours) - $450</option>
+                            <option value="DDoS Attack (Per Hour, Protected)|$2,600">DDoS Attack (Per Hour, Protected) - $2,600</option>
+                            <option value="Computer/Phone Hacking|$2,430">Computer/Phone Hacking - $2,430</option>
+                            <option value="Website Hacking (Full Compromise)|$2,940">Website Hacking (Full Compromise) - $2,940</option>
+                            <option value="Changing School/University Grades|$2,260">Changing School/University Grades - $2,260</option>
+                            <option value="Debt/Credit Report Manipulation|$1,570">Debt/Credit Report Manipulation - $1,570</option>
+                            <option value="Personal Doxxing Attack|$3,510">Personal Doxxing Attack - $3,510</option>
+                            <option value="Small Business Full Access|$4,000">Small Business Full Access - $4,000</option>
+                            <option value="Corporate Email Takeover|$2,200">Corporate Email Takeover - $2,200</option>
+                            <option value="Corporate Domain Admin Access|$4,000">Corporate Domain Admin Access - $4,000</option>
+                            <option value="Deepfake Video Creation|$3,200">Deepfake Video Creation - $3,200</option>
+                            <option value="Complete Medical Record|$4,200">Complete Medical Record - $4,200</option>
+                            <option value="EU Passport (Physical Forgery)|$4,800">EU Passport (Physical Forgery) - $4,800</option>
+                            <option value="Zero-Day Exploit (Premium)|$80,000">Zero-Day Exploit (Premium) - $80,000</option>
+                            <option value="Full OSINT Mastery Course|$1,200">Full OSINT Mastery Course - $1,200</option>
+                            <option value="Custom Phishing Kit (2025)|$2,500">Custom Phishing Kit (2025) - $2,500</option>
+                            <option value="Fingerprint Spoofing Suite|$950">Fingerprint Spoofing Suite - $950</option>
+                            <option value="Exploit Development Bootcamp|$3,800">Exploit Development Bootcamp - $3,800</option>
+                            <option value="Keylogger + Remote Installer|$1,800">Keylogger + Remote Installer - $1,800</option>
+                            <option value="AV Evasion Framework|$2,200">AV Evasion Framework - $2,200</option>
+                            <option value="SMS & Call Spoofing Tool|$1,500">SMS & Call Spoofing Tool - $1,500</option>
+                            <option value="Cobalt Strike License (Cracked)|$6,500">Cobalt Strike License (Cracked) - $6,500</option>
+                            <option value="Metasploit Pro (Lifetime)|$4,200">Metasploit Pro (Lifetime) - $4,200</option>
+                            <option value="Private RDP + VPS Setup Guide|$750">Private RDP + VPS Setup Guide - $750</option>
+                            <option value="Full Introduction To Hacking Mastery Course|$650">Full Introduction To Hacking Mastery Course - $650</option>
+                            <option value="Full Middle-Level Hacking Mastery Course|$1,300">Full Middle-Level Hacking Mastery Course - $1,300</option>
+                            <option value="Full Pro-Level Hacking Mastery Course|$2,500">Full Pro-Level Hacking Mastery Course - $2,500</option>
+                            <option value="BTC Wallet Recovery|21% of Total">BTC Wallet Recovery - 21% of Total</option>
+                            <option value="ETH Wallet Recovery|21% of Total">ETH Wallet Recovery - 21% of Total</option>
+                            <option value="SOL Wallet Recovery|21% of Total">SOL Wallet Recovery - 21% of Total</option>
+                            <option value="XMR Wallet Recovery|21% of Total">XMR Wallet Recovery - 21% of Total</option>
+                            <option value="USDT Wallet Recovery|21% of Total">USDT Wallet Recovery - 21% of Total</option>
+
+                            <!-- Asset Recovery Services -->
+                            <option value="Cryptocurrency Wallet Recovery|21% of Recovered Amount (Min $10K)">Cryptocurrency Wallet Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Bank Account and Wire Transfer Recovery|21% of Recovered Amount (Min $10K)">Bank Account and Wire Transfer Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Valuable Items Recovery (e.g., Cars, Jewelry)|21% of Recovered Value (Min $10K)">Valuable Items Recovery (e.g., Cars, Jewelry) - 21% of Recovered Value (Min $10K)</option>
+                            <option value="Investment Scam Recovery|21% of Recovered Amount (Min $10K)">Investment Scam Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Ransomware Asset Recovery|$2,900 + 21% if Additional Funds Recovered">Ransomware Asset Recovery - $2,900 + 21% if Additional Funds Recovered</option>
+                            <option value="General Scammed Funds Recovery|21% of Recovered Amount (Min $10K)">General Scammed Funds Recovery - 21% of Recovered Amount (Min $10K)</option>
+
+                            <!-- Private Investigator Hire Services -->
+                            <option value="Background Checks|$500 - $2,000 (Flat Fee)">Background Checks - $500 - $2,000 (Flat Fee)</option>
+                            <option value="Surveillance|$100 - $200 per Hour">Surveillance - $100 - $200 per Hour</option>
+                            <option value="Infidelity Investigations|$1,500 - $5,000 (Package)">Infidelity Investigations - $1,500 - $5,000 (Package)</option>
+                            <option value="Missing Persons Locate|$2,000 - $4,000 (Package)">Missing Persons Locate - $2,000 - $4,000 (Package)</option>
+                            <option value="Asset Searches|$1,500 - $3,000 (Flat Fee)">Asset Searches - $1,500 - $3,000 (Flat Fee)</option>
+                            <option value="Social Media Investigations|$1,500 - $3,500 (Package)">Social Media Investigations - $1,500 - $3,500 (Package)</option>
+                            <option value="Corporate Espionage Investigations|$3,000+ (Custom Quote)">Corporate Espionage Investigations - $3,000+ (Custom Quote)</option>
+                            <option value="Child Custody Investigations|$2,000 - $5,000 (Package)">Child Custody Investigations - $2,000 - $5,000 (Package)</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Next</button>
+                </div>
+
+                <!-- Step 2: Target Details -->
+                <div class="step" id="step2">
+                    <h3>Order Details</h3>
+                    <div class="form-group">
+                        <label>Selected Service</label>
+                        <div id="selectedService"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Details</label>
+                        <input type="text" id="targetDetails" placeholder="Username, email, wallet address, URL, etc." required />
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Information</label>
+                        <textarea id="additionalInfo" rows="4" placeholder="Known passwords, 2FA status, recovery hints, etc."></textarea>
+                    </div>
+                    <button class="btn btn-secondary" onclick="prevStep(1)">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)">Proceed to Payment</button>
+                </div>
+
+                <!-- Step 3: Payment -->
+                <div class="step" id="step3">
+                    <h3>Payment (BTC Only)</h3>
+                    <p>Send exact amount to the address below. Use only BTC.</p>
+                    <div class="btc-address" id="btcAddress">bc1qvxzvx0hdcahwys5v4yuqh5er9myuy4hcj3yudl</div>
+                    <p><strong>Amount Due:</strong> <span id="amountDue">$0.00</span></p>
+                    <div class="form-group">
+                        <label>Enter Your BTC Transaction ID (64 hex characters)</label>
+                        <input type="text" id="txid" placeholder="e.g., a1b2c3d4e5f6..." maxlength="64" />
+                        <div class="error-msg" id="txidError">Invalid TXID. Must be 64 hex characters.</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                    <button class="btn btn-primary" onclick="validateTXID()">Confirm Payment</button>
+                </div>
+
+                <!-- Step 4: Status -->
+                <div class="step" id="step4">
+                    <h3>Payment Status</h3>
+                    <p id="paymentStatus">Checking transaction...</p>
+                    <p id="orderId" style="display:none;"></p>
+                    <div style="margin-top:2rem; padding:1.5rem; background:rgba(100, 255, 218, 0.05); border-radius:12px; border:1px solid var(--primary);">
+                        <p><strong>After payment is confirmed:</strong></p>
+                        <p>Email us at <strong>theghostcyber@tuta.io</strong> with your TXID, order details, and unique Order ID for immediate processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Client Reviews</h2>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">KX</div>
+                        <div class="review-meta">
+                            <h4>@KryptoX</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Lost access to my $42K ETH wallet from 2021. Sent seed phrase fragments. They recovered it in 18 hours. 
+                        21% fee hurt, but got $33.2K back. Legit, but expensive."
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">DR</div>
+                        <div class="review-meta">
+                            <h4>@DarkRiser</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Paid $900 for 48-hour DDoS on a competitor. Site went down within 3 minutes. 
+                        No logs, no warnings. Worked perfectly. Will use again."
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">NL</div>
+                        <div class="review-meta">
+                            <h4>@NightLurker</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Got full Instagram access to my ex’s account. Saw DMs, archived stories, even deleted posts. 
+                        $550 and 12 hours. Creepy, but it worked."
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SH</div>
+                        <div class="review-meta">
+                            <h4>@ShadowHawk</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Bank login with $18K balance. Transferred to my account in 3 clicks. 
+                        No alerts triggered. Clean exit. Worth every penny."
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">VX</div>
+                        <div class="review-meta">
+                            <h4>@VoidX</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Bought WinRAR zero-day for $80K. Already made $2.1M in 2 weeks. 
+                        ROI is insane. They don’t play games."
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CR</div>
+                        <div class="review-meta">
+                            <h4>@CryptoReaper</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Scammed out of $27K USDT on a fake exchange. Ghost recovered $21.3K after fee. 
+                        Better than zero. Took 4 days. Not bad."
+                    </div>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BL</div>
+                        <div class="review-meta">
+                            <h4>@BlackLotus</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Grade changed from F to A in university portal. $5,260. 
+                        Professor never noticed. Took 36 hours. Risky but worked."
+                    </div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">PH</div>
+                        <div class="review-meta">
+                            <h4>@Phantom</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Tracked an IP to an apartment in Berlin. Got full address, ISP logs, even neighbors. 
+                        $1,950. Overkill, but accurate."
+                    </div>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ST</div>
+                        <div class="review-meta">
+                            <h4>@SilentTiger</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Corporate domain admin access. Full AD takeover in 19 hours. 
+                        $5K. No alerts. Clean. Professional."
+                    </div>
+                </div>
+
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WZ</div>
+                        <div class="review-meta">
+                            <h4>@Wizard</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Ransomware decryption for Conti. Paid $2,900. Got files back in 11 hours. 
+                        No data leaked. Saved my business."
+                    </div>
+                </div>
+
+                <!-- Review 11 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FX</div>
+                        <div class="review-meta">
+                            <h4>@Fox</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Netflix account with 4K. $350. Works on 3 devices. 
+                        No password change. Still active after 2 months."
+                    </div>
+                </div>
+
+                <!-- Review 12 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RV</div>
+                        <div class="review-meta">
+                            <h4>@Raven</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Phone tracking on Android. Real-time GPS, SMS, WhatsApp. 
+                        $850. Battery drain was high, but accurate."
+                    </div>
+                </div>
+
+                <!-- Review 13 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SP</div>
+                        <div class="review-meta">
+                            <h4>@Spectre</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Custom malware for targeted infostealer. $3,188. 
+                        Harvested 400+ credentials in 3 days. Solid."
+                    </div>
+                </div>
+
+                <!-- Review 14 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">HN</div>
+                        <div class="review-meta">
+                            <h4>@Hound</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Doxxing package. Full name, address, family, job. $5,510. 
+                        Too much info. Scary accurate."
+                    </div>
+                </div>
+
+                <!-- Review 15 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CT</div>
+                        <div class="review-meta">
+                            <h4>@Cipher</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Walmart account with CC. Bought $1,200 in gift cards. 
+                        No blocks. $500 well spent."
+                    </div>
+                </div>
+
+                <!-- Review 16 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JD</div>
+                        <div class="review-meta">
+                            <h4>@Jade</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Deepfake video of boss saying racist stuff. 4K, voice clone. 
+                        $4,200. Looked real. Leaked. Chaos."
+                    </div>
+                </div>
+
+                <!-- Review 17 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">GR</div>
+                        <div class="review-meta">
+                            <h4>@Grim</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "EU passport forgery. Used at airport. Passed scan. 
+                        $3,800. High quality. Nervous, but worked."
+                    </div>
+                </div>
+
+                <!-- Review 18 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BT</div>
+                        <div class="review-meta">
+                            <h4>@Byte</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "WiFi crack on WPA3 router. Got in 4 hours. $2,000. 
+                        Owner never knew. Full MITM."
+                    </div>
+                </div>
+
+                <!-- Review 19 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SL</div>
+                        <div class="review-meta">
+                            <h4>@Slate</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "PayPal with $9K balance. Transferred out. $1,500. 
+                        Account still active. No freeze."
+                    </div>
+                </div>
+
+                <!-- Review 20 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">NX</div>
+                        <div class="review-meta">
+                            <h4>@Nexus</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Smart home takeover. Turned off cameras, unlocked doors. 
+                        $1,100. Scary easy."
+                    </div>
+                </div>
+
+                <!-- Review 21 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FL</div>
+                        <div class="review-meta">
+                            <h4>@Flare</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Credit report cleaned. Removed 3 defaults. $2,570. 
+                        Score up 120 points. Legit."
+                    </div>
+                </div>
+
+                <!-- Review 22 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">VR</div>
+                        <div class="review-meta">
+                            <h4>@Viper</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "RDP to AWS server. Full root. $1,000. 
+                        Deployed miner. Made $4K in a week."
+                    </div>
+                </div>
+
+                <!-- Review 23 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ZK</div>
+                        <div class="review-meta">
+                            <h4>@Zeke</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Medical record access. Full patient file. $5,000. 
+                        Blackmail worked. Paid fast."
+                    </div>
+                </div>
+
+                <!-- Review 24 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">QN</div>
+                        <div class="review-meta">
+                            <h4>@Quinn</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Website full compromise. Injected backdoor. $3,940. 
+                        Owner still clueless."
+                    </div>
+                </div>
+
+                <!-- Review 25 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">LX</div>
+                        <div class="review-meta">
+                            <h4>@Lynx</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Password recovery on encrypted VeraCrypt drive. $1,100. 
+                        Took 9 hours. Got in."
+                    </div>
+                </div>
+
+                <!-- Review 26 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">TR</div>
+                        <div class="review-meta">
+                            <h4>@Troy</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "SOL wallet with $28K. Recovered. Paid 21%. 
+                        Got $22.1K. Better than lost."
+                    </div>
+                </div>
+
+                <!-- Review 27 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MK</div>
+                        <div class="review-meta">
+                            <h4>@Mako</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "IP camera in hotel room. Live feed + recordings. $1,500. 
+                        Creepy. But worked."
+                    </div>
+                </div>
+
+                <!-- Review 28 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RD</div>
+                        <div class="review-meta">
+                            <h4>@Red</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Small business network full access. $6,000. 
+                        Deployed ransomware. Paid out."
+                    </div>
+                </div>
+
+                <!-- Review 29 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">GS</div>
+                        <div class="review-meta">
+                            <h4>@Ghost</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Corporate email takeover. Sent fake invoice. $3,200. 
+                        $180K wired. Clean."
+                    </div>
+                </div>
+
+                <!-- Review 30 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WL</div>
+                        <div class="review-meta">
+                            <h4>@Wolf</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "BTC wallet from 2017. $65K. Recovered. Paid 21%. 
+                        Got $51.3K. Life-changing."
+                    </div>
+                </div>
+
+                <!-- Additional Reviews for PI and Asset Recovery -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AR</div>
+                        <div class="review-meta">
+                            <h4>@AssetRescuer</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Recovered my scammed $15K from a fake investment site. Professional process, got $11.85K back after fee. Highly recommend for asset recovery."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">PI</div>
+                        <div class="review-meta">
+                            <h4>@PrivateEye</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Hired for infidelity surveillance. Discreet, detailed report with evidence. Worth the $2,500 package. Professional throughout."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FR</div>
+                        <div class="review-meta">
+                            <h4>@FundRetriever</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Lost jewelry worth $12K in a scam. Their asset recovery team tracked and recovered it. 21% fee was fair for the results."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BG</div>
+                        <div class="review-meta">
+                            <h4>@BackgroundGuru</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Comprehensive background check on a business partner. Uncovered hidden debts. $1,200 well spent on PI services."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MP</div>
+                        <div class="review-meta">
+                            <h4>@MissingPerson</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Located a missing relative using their PI locate service. Efficient and empathetic. $3,000 package delivered results in days."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AS</div>
+                        <div class="review-meta">
+                            <h4>@AssetSeeker</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Asset search revealed hidden offshore accounts in a divorce case. Professional report, $2,500. Invaluable."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SM</div>
+                        <div class="review-meta">
+                            <h4>@SocialMonitor</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Social media investigation uncovered key evidence for custody battle. Thorough and discreet PI work for $2,800."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CE</div>
+                        <div class="review-meta">
+                            <h4>@CorpEsp</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Detected corporate espionage leak. Their PI team identified the source quickly. $4,000 investment saved our company."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CC</div>
+                        <div class="review-meta">
+                            <h4>@CustodyCare</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Child custody investigation provided crucial evidence on ex's lifestyle. Professional handling, $3,500."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WR</div>
+                        <div class="review-meta">
+                            <h4>@WalletRecover</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Recovered $50K in lost BTC wallet through asset recovery. Efficient process, paid fair 21% fee."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About THE GHOST</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">
+                THE GHOST is a leading provider of cutting-edge cybersecurity and digital forensic services. Our team of experts specializes in elite access solutions, asset recovery, and private investigations. We prioritize client confidentiality, using state-of-the-art tools to deliver results without traces. Whether you're dealing with lost funds, network vulnerabilities, or personal investigations, we handle diverse issues with professionalism and precision. Our services address complex digital challenges, from ransomware decryption to corporate espionage detection, ensuring comprehensive support for all your security needs.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title">Why Choose THE GHOST</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Untraceable Operations</h3>
+                    <p>We accept BTC-only payments with no KYC requirements, ensuring complete anonymity. Our systems maintain no records or logs, providing you with peace of mind and security in every transaction. Ideal for sensitive operations where privacy is paramount.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning-Fast Delivery</h3>
+                    <p>Most services are completed within 72 hours, thanks to our efficient processes and expert team. We prioritize speed without compromising on quality or accuracy, handling urgent recoveries and investigations promptly.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Guaranteed Results</h3>
+                    <p>If we cannot deliver the promised results, you receive a full refund. Our success rate is backed by years of experience in complex cybersecurity challenges, from asset tracking to exploit development.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Professional Support</h3>
+                    <p>Our support team responds to emails within 2 hours, offering expert guidance and updates throughout your engagement with us. We address all queries, from service details to progress reports, ensuring smooth communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info" style="text-align:center;">
+                <p>Email: <strong class="contact-email">theghostcyber@tuta.io</strong></p>
+                <p class="response-time">Response within 2 hours, 24/7 availability for urgent issues.</p>
+                <p>For different issues: Asset recovery inquiries - provide scam details; <br>PI hires - describe case scope; <br>General services - specify target info. <br>We handle all with confidentiality.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#order">Order</a>
+                <a href="#asset-recovery">Asset Recovery</a>
+                <a href="#pi-hire">Private Investigator Hire</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#about">About</a>
+                <a href="#why">Why Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2026 THE GHOST. All access granted. No traces left.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
-      });
-    });
-    
-    // Order Form Steps
-    const orderForm = document.getElementById('order-form');
-    const steps = orderForm.querySelectorAll('.form-step');
-    const stepIndicators = document.querySelectorAll('.step');
-    const stepLines = document.querySelectorAll('.step-line');
-    
-    // Service type selection
-    const serviceTypeOptions = document.querySelectorAll('.service-type-option');
-    let selectedServiceType = '';
-    
-    serviceTypeOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        serviceTypeOptions.forEach(opt => opt.classList.remove('neon-border', 'neon-border-magenta'));
-        
-        if(this.dataset.value === 'hacking') {
-          this.classList.add('neon-border');
-        } else {
-          this.classList.add('neon-border-magenta');
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Order steps
+        let currentStep = 1;
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+            currentStep = step;
         }
-        
-        selectedServiceType = this.dataset.value;
-        
-        // Save to localStorage
-        localStorage.setItem('serviceType', selectedServiceType);
-      });
-    });
-    
-    // Next step button
-    document.querySelectorAll('.next-step').forEach(button => {
-      button.addEventListener('click', function() {
-        const currentStep = this.closest('.form-step');
-        const currentStepNum = parseInt(currentStep.dataset.step);
-        const nextStepNum = currentStepNum + 1;
-        
-        // Validate current step
-        if(currentStepNum === 1 && !selectedServiceType) {
-          alert('Please select a service type');
-          return;
-        }
-        
-        if(currentStepNum === 2) {
-          let serviceSelected = false;
-          
-          if(selectedServiceType === 'hacking') {
-            serviceSelected = document.getElementById('hacking-service-select').value !== '';
-          } else {
-            serviceSelected = document.getElementById('recovery-service-select').value !== '';
-          }
-          
-          if(!serviceSelected) {
-            alert('Please select a specific service');
-            return;
-          }
-          
-          // Save to localStorage
-          if(selectedServiceType === 'hacking') {
-            localStorage.setItem('specificService', document.getElementById('hacking-service-select').value);
-          } else {
-            localStorage.setItem('specificService', document.getElementById('recovery-service-select').value);
-          }
-        }
-        
-        if(currentStepNum === 3) {
-          const email = document.getElementById('contact-email').value;
-          if(!email) {
-            alert('Please enter your contact email');
-            return;
-          }
-          
-          // Save to localStorage
-          localStorage.setItem('contactEmail', email);
-          
-          if(selectedServiceType === 'hacking') {
-            const handle = document.getElementById('target-handle').value;
-            if(!handle) {
-              alert('Please enter target handle/username');
-              return;
+
+        function nextStep(step) {
+            if (step === 2) {
+                const select = document.getElementById('serviceSelect');
+                const selected = select.options[select.selectedIndex];
+                if (!selected.value) return alert('Please select a service');
+
+                const fullText = selected.text;
+                const name = fullText.split(' - ')[0];
+                const price = fullText.split(' - ')[1];
+
+                document.getElementById('selectedService').innerHTML = `<strong>${name}</strong><br>Price: <span style="color:var(--primary);">${price}</span>`;
             }
-            localStorage.setItem('targetHandle', handle);
-          } else {
-            const walletAddress = document.getElementById('wallet-address').value;
-            const lossAmount = document.getElementById('loss-amount').value;
-            
-            if(!walletAddress) {
-              alert('Please enter wallet address');
-              return;
+
+            if (step === 3) {
+                const fullText = document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text;
+                const price = fullText.split(' - ')[1];
+                document.getElementById('amountDue').textContent = price;
             }
-            
-            if(!lossAmount || lossAmount < 10000) {
-              alert('Please enter a loss amount ? ?10,000');
-              return;
+
+            showStep(step);
+        }
+
+        function prevStep(step) {
+            showStep(step);
+        }
+
+        function validateTXID() {
+            const txid = document.getElementById('txid').value.trim();
+            const hexRegex = /^[a-fA-F0-9]{64}$/;
+            const error = document.getElementById('txidError');
+
+            if (!hexRegex.test(txid)) {
+                error.style.display = 'block';
+                return;
             }
-            
-            localStorage.setItem('walletAddress', walletAddress);
-            localStorage.setItem('lossAmount', lossAmount);
-          }
-          
-          // Update summary
-          updateOrderSummary();
+            error.style.display = 'none';
+
+            // Generate unique Order ID
+            const orderId = 'ORDER-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('orderId').innerHTML = `<strong>Your Unique Order ID:</strong> ${orderId}<br>Use this for email follow-up.`;
+            document.getElementById('orderId').style.display = 'block';
+
+            showStep(4);
+            document.getElementById('paymentStatus').innerHTML = `
+                <p style="color:var(--primary);">TXID Valid: <code>${txid}</code></p>
+                <p>Status: <strong>Pending Confirmation (1/3)</strong></p>
+                <p><em>Typically confirms in 10-30 minutes.</em></p>
+            `;
         }
-        
-        // Move to next step
-        currentStep.classList.remove('active');
-        stepIndicators[currentStepNum - 1].classList.remove('active');
-        
-        if(nextStepNum <= steps.length) {
-          steps[nextStepNum - 1].classList.add('active');
-          stepIndicators[nextStepNum - 1].classList.add('active');
-          
-          // Update the connecting line
-          if(currentStepNum - 1 < stepLines.length) {
-            stepLines[currentStepNum - 1].classList.add('active');
-          }
-          
-          // Show appropriate fields in step 2
-          if(nextStepNum === 2) {
-            if(selectedServiceType === 'hacking') {
-              document.getElementById('hacking-services').style.display = 'block';
-              document.getElementById('recovery-services').style.display = 'none';
-            } else {
-              document.getElementById('hacking-services').style.display = 'none';
-              document.getElementById('recovery-services').style.display = 'block';
+
+        // Optional: update price preview when the dropdown changes
+        document.getElementById('serviceSelect').addEventListener('change', function () {
+            const fullText = this.options[this.selectedIndex].text;
+            const price = fullText.split(' - ')[1];
+            if (price) {
+                // You can add live preview here if needed
             }
-          }
-          
-          // Show appropriate fields in step 3
-          if(nextStepNum === 3) {
-            if(selectedServiceType === 'hacking') {
-              document.getElementById('hacking-details').style.display = 'block';
-              document.getElementById('recovery-details').style.display = 'none';
-            } else {
-              document.getElementById('hacking-details').style.display = 'none';
-              document.getElementById('recovery-details').style.display = 'block';
-            }
-          }
-          
-          // Update payment amount in step 5
-          if(nextStepNum === 5) {
-            const amount = document.getElementById('summary-price').querySelector('span').innerText;
-            document.getElementById('payment-amount').innerText = amount;
-          }
-        }
-      });
-    });
-    
-    // Previous step button
-    document.querySelectorAll('.prev-step').forEach(button => {
-      button.addEventListener('click', function() {
-        const currentStep = this.closest('.form-step');
-        const currentStepNum = parseInt(currentStep.dataset.step);
-        const prevStepNum = currentStepNum - 1;
-        
-        if(prevStepNum >= 1) {
-          currentStep.classList.remove('active');
-          stepIndicators[currentStepNum - 1].classList.remove('active');
-          steps[prevStepNum - 1].classList.add('active');
-          stepIndicators[prevStepNum - 1].classList.add('active');
-          
-          // Update the connecting line
-          if(currentStepNum - 2 < stepLines.length) {
-            stepLines[currentStepNum - 2].classList.remove('active');
-          }
-        }
-      });
-    });
-    
-    // Update order summary
-    function updateOrderSummary() {
-      const serviceType = localStorage.getItem('serviceType');
-      const specificService = localStorage.getItem('specificService');
-      const email = localStorage.getItem('contactEmail');
-      
-      document.getElementById('summary-service-type').innerHTML = `Service Type: <span class="neon-text-cyan">${serviceType === 'hacking' ? 'Hacking Simulation' : 'Recovery Simulation'}</span>`;
-      document.getElementById('summary-email').innerHTML = `Contact: <span class="neon-text-cyan">${email}</span>`;
-      
-      if(serviceType === 'hacking') {
-        const handle = localStorage.getItem('targetHandle');
-        let serviceName = '';
-        let price = '';
-        
-        switch(specificService) {
-          case 'social':
-            serviceName = 'Social Media Account Access';
-            price = '?550';
-            break;
-          case 'email':
-            serviceName = 'Email Account Access';
-            price = '?650';
-            break;
-          case 'whatsapp':
-            serviceName = 'WhatsApp Recovery';
-            price = '?750';
-            break;
-          case 'phone':
-            serviceName = 'Phone Tracking';
-            price = '?850';
-            break;
-          case 'website':
-            serviceName = 'Website Vulnerability Assessment';
-            price = '?1,200';
-            break;
-          case 'camera':
-            serviceName = 'IP Camera Access';
-            price = '?1,500';
-            break;
-          case 'dating':
-            serviceName = 'Password Cracking';
-            price = '?650';
-            break;
-          case 'wifi':
-            serviceName = 'WiFi Network Assessment';
-            price = '?2,000';
-            break;
-          case 'password':
-            serviceName = 'Password Recovery';
-            price = '?1,100';
-            break;
-          case 'advanced':
-            serviceName = 'Advanced Security Assessment';
-            price = '?3,500';
-            break;
-        }
-        
-        document.getElementById('summary-service').innerHTML = `Specific Service: <span class="neon-text-cyan">${serviceName}</span>`;
-        document.getElementById('summary-target').innerHTML = `Target: <span class="neon-text-cyan">${handle}</span>`;
-        document.getElementById('summary-price').innerHTML = `Total: <span class="neon-text-magenta">${price}</span>`;
-        document.getElementById('recovery-fee-explanation').style.display = 'none';
-      } else {
-        const walletAddress = localStorage.getItem('walletAddress');
-        const lossAmount = localStorage.getItem('lossAmount');
-        let cryptoType = '';
-        
-        switch(specificService) {
-          case 'bitcoin':
-            cryptoType = 'Bitcoin';
-            break;
-          case 'ethereum':
-            cryptoType = 'Ethereum';
-            break;
-          case 'tether':
-            cryptoType = 'Tether';
-            break;
-          case 'xrp':
-            cryptoType = 'XRP';
-            break;
-          case 'other':
-            cryptoType = 'Other Cryptocurrency';
-            break;
-        }
-        
-        const fee = Math.round(lossAmount * 0.2);
-        const formattedFee = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR' }).format(fee);
-        
-        document.getElementById('summary-service').innerHTML = `Specific Service: <span class="neon-text-cyan">${cryptoType} Recovery</span>`;
-        document.getElementById('summary-target').innerHTML = `Wallet: <span class="neon-text-cyan">${walletAddress.substring(0, 10)}...${walletAddress.substring(walletAddress.length - 10)}</span>`;
-        document.getElementById('summary-price').innerHTML = `Total: <span class="neon-text-magenta">${formattedFee}</span>`;
-        document.getElementById('recovery-fee-explanation').style.display = 'block';
-      }
-    }
-    
-    // Form submission
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Your message has been sent. We will contact you shortly.');
-    });
-    
-    // Load values from localStorage on page load
-    window.addEventListener('load', function() {
-      const serviceType = localStorage.getItem('serviceType');
-      if(serviceType) {
-        selectedServiceType = serviceType;
-        document.querySelector(`.service-type-option[data-value="${serviceType}"]`).click();
-      }
-      
-      const specificService = localStorage.getItem('specificService');
-      if(specificService) {
-        if(serviceType === 'hacking') {
-          document.getElementById('hacking-service-select').value = specificService;
-        } else {
-          document.getElementById('recovery-service-select').value = specificService;
-        }
-      }
-      
-      const email = localStorage.getItem('contactEmail');
-      if(email) {
-        document.getElementById('contact-email').value = email;
-      }
-      
-      const handle = localStorage.getItem('targetHandle');
-      if(handle) {
-        document.getElementById('target-handle').value = handle;
-      }
-      
-      const walletAddress = localStorage.getItem('walletAddress');
-      if(walletAddress) {
-        document.getElementById('wallet-address').value = walletAddress;
-      }
-      
-      const lossAmount = localStorage.getItem('lossAmount');
-      if(lossAmount) {
-        document.getElementById('loss-amount').value = lossAmount;
-      }
-    });
-  </script>
+        });
+
+        // Add animation delays to service cards
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        const reviewCards = document.querySelectorAll('.review-card');
+        reviewCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
 </body>
 </html>
-
