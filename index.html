@@ -1,1 +1,3494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>THE GHOST | Cyber Security & Digital Forensic</title>
+    <meta name="description" content="Elite cyber access, recovery, and forensic services. Starting at $350. Crypto wallet recovery: 21% fee. BTC payments only." />
 
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Start of Tawk.to Script -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69efd15c012bcb1c301c3d6e/1jn8cjla2';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!-- End of Tawk.to Script -->
+
+    <style>
+        :root {
+            --bg: #0a1128;
+            --surface: #0f172a;
+            --surface-light: #1a2847;
+            --primary: #64ffda;
+            --primary-dark: #45d4ba;
+            --secondary: #8892b0;
+            --accent: #0a192f;
+            --text: #e6edf3;
+            --text-muted: #8b92b3;
+            --border: #1a2847;
+            --glow: 0 0 20px rgba(100, 255, 218, 0.25);
+            --glow-accent: 0 0 30px rgba(100, 255, 218, 0.35);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --error: #ff6584;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="none" stroke="%2364ffda" stroke-width="1" opacity="0.06" d="M50 100 Q75 80 100 100 T150 100 M50 120 Q75 100 100 120 T150 120"/><circle cx="100" cy="100" r="5" fill="%2364ffda" opacity="0.08"/><rect x="80" y="90" width="40" height="20" fill="none" stroke="%2364ffda" opacity="0.06"/><line x1="20" y1="20" x2="180" y2="180" stroke="%2364ffda" opacity="0.04"/><path d="M30 150 L40 140 L50 150 L60 140 L70 150" fill="none" stroke="%2364ffda" opacity="0.06"/></svg>') repeat;
+            animation: cyber-float 50s infinite linear;
+        }
+
+        @keyframes cyber-float {
+            0% { background-position: 0 0; }
+            100% { background-position: 200px -200px; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--surface);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        .neon-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 17, 40, 0.85);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            padding: 0.6rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeIn 1s ease-out;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            filter: brightness(1.15);
+            transform: scale(1.03);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            transition: var(--transition);
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #7fffd4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(100, 255, 218, 0.1) 100%);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .cta-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: var(--glow-accent);
+            transform: translateY(-3px);
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .matrix-rain canvas {
+            display: block;
+        }
+
+        /* Typing Effect */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--primary);
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Enhanced Network Animation */
+        .network-animation svg line {
+            animation: linePulse 3s infinite;
+        }
+
+        .network-animation svg line:nth-child(1) { animation-delay: 0s; }
+        .network-animation svg line:nth-child(2) { animation-delay: 0.5s; }
+        .network-animation svg line:nth-child(3) { animation-delay: 1s; }
+        .network-animation svg line:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.3; stroke-width: 2; }
+            50% { opacity: 0.8; stroke-width: 3; }
+        }
+
+        /* Floating Code Snippets */
+        .floating-code {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            opacity: 0.6;
+            pointer-events: none;
+            animation: floatCode 8s infinite linear;
+        }
+
+        .floating-code:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-code:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-code:nth-child(3) { top: 40%; left: 70%; animation-delay: 4s; }
+        .floating-code:nth-child(4) { top: 80%; right: 5%; animation-delay: 6s; }
+
+        /* Overlapping Cards */
+        .overlap-cards {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .overlap-card {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            animation: floatOverlap 6s infinite ease-in-out;
+        }
+
+        .overlap-card:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            transform: rotate(-5deg);
+        }
+
+        .overlap-card:nth-child(2) {
+            top: 30%;
+            right: 10%;
+            animation-delay: 2s;
+            transform: rotate(3deg);
+        }
+
+        .overlap-card:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+            transform: rotate(-2deg);
+        }
+
+        .overlap-card h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .overlap-card p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        @keyframes floatOverlap {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .network-animation {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 85%;
+            z-index: 1;
+            opacity: 0.25;
+        }
+
+        .network-animation svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            animation: blink 2.5s infinite;
+        }
+
+        .node:nth-child(2) { animation-delay: 0.5s; }
+        .node:nth-child(3) { animation-delay: 1s; }
+        .node:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            margin: 20px auto 0;
+            border-radius: 2px;
+            box-shadow: var(--glow);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin: 4rem 0 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 2px;
+        }
+
+        .operations {
+            padding: 60px 0 40px;
+        }
+
+        .operation-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .toggle-btn {
+            appearance: none;
+            border: 1px solid rgba(100, 255, 218, 0.35);
+            border-radius: 999px;
+            padding: 0.8rem 1.4rem;
+            color: var(--text);
+            background: rgba(8, 13, 26, 0.95);
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: inset 0 0 0 1px rgba(100, 255, 218, 0.08);
+        }
+
+        .toggle-btn:hover {
+            background: rgba(100, 255, 218, 0.08);
+            border-color: var(--primary);
+        }
+
+        #operations.blackhat-mode .blackhat-card {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 25px 90px rgba(255, 73, 87, 0.22);
+            border-color: rgba(255, 73, 87, 0.35);
+        }
+
+        #operations.blackhat-mode .whitehat-card {
+            opacity: 0.65;
+            filter: saturate(0.7) grayscale(0.3);
+        }
+
+        #operations.whitehat-mode .whitehat-card {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 25px 90px rgba(86, 169, 255, 0.22);
+            border-color: rgba(86, 169, 255, 0.35);
+        }
+
+        #operations.whitehat-mode .blackhat-card {
+            opacity: 0.65;
+            filter: saturate(0.7) grayscale(0.3);
+        }
+
+        #operations.blackhat-mode .ghost-card,
+        #operations.whitehat-mode .ghost-card {
+            opacity: 1;
+            filter: none;
+        }
+
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interactive-card {
+            background: rgba(12, 17, 32, 0.98);
+            border: 1px solid rgba(100, 255, 218, 0.12);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1px rgba(100, 255, 218, 0.03);
+        }
+
+        .interactive-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 18%, rgba(100, 255, 218, 0.08) 50%, transparent 82%);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+            pointer-events: none;
+        }
+
+        .interactive-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .interactive-card:hover {
+            transform: perspective(1000px) translateY(-10px) scale(1.03) rotateZ(0.05deg);
+            box-shadow: 0 25px 80px rgba(100, 255, 218, 0.16), 0 0 30px rgba(100, 255, 218, 0.08);
+            border-color: var(--primary);
+        }
+
+        .card-label {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(100, 255, 218, 0.18);
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .interactive-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary) 0%, #a4ffe7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .interactive-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .card-meta span {
+            font-size: 0.85rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(100, 255, 218, 0.06);
+            border: 1px solid rgba(100, 255, 218, 0.12);
+            color: var(--text);
+        }
+
+        .blackhat-card {
+            border-color: rgba(255, 73, 87, 0.18);
+            box-shadow: inset 0 0 0 1px rgba(255, 73, 87, 0.05);
+        }
+
+        .whitehat-card {
+            border-color: rgba(86, 169, 255, 0.18);
+            box-shadow: inset 0 0 0 1px rgba(86, 169, 255, 0.05);
+        }
+
+        .ghost-card {
+            border-color: rgba(181, 84, 255, 0.18);
+            box-shadow: inset 0 0 0 1px rgba(181, 84, 255, 0.05);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s forwards;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(100, 255, 218, 0.03) 50%, transparent 100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes cardFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1) translateZ(0); }
+            50% { transform: scale(1.08) translateZ(8px); }
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.05s; }
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.15s; }
+        .service-card:nth-child(4) { animation-delay: 0.2s; }
+        .service-card:nth-child(n+5) { animation-delay: 0.1s; }
+
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-lg), var(--glow), 0 0 30px rgba(100, 255, 218, 0.12);
+            border-color: var(--primary);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover .service-icon {
+            animation: pulseIcon 1.6s ease-in-out infinite;
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .crypto-recovery {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.08) 0%, rgba(100, 255, 218, 0.04) 100%);
+            border: 1.5px solid var(--primary);
+        }
+
+        /* Order Process */
+        .order-process {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            padding: 3.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            box-shadow: var(--shadow-lg), var(--glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 50%, transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .progress-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: calc(100% - 40px);
+            height: 2px;
+            background: rgba(100, 255, 218, 0.2);
+            z-index: 1;
+        }
+
+        .progress-step.completed:not(:last-child)::after {
+            background: var(--primary);
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: bold;
+            transition: var(--transition);
+            z-index: 2;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .progress-step.completed .step-icon {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--bg);
+        }
+
+        .progress-step.active .step-icon {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--bg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary);
+        }
+
+        .step {
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(10, 17, 40, 0.6);
+            border: 1.5px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(10, 17, 40, 0.8);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-right: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--bg);
+            box-shadow: var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-accent);
+        }
+
+        .btn-secondary {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(100, 255, 218, 0.2);
+        }
+
+        .btc-address {
+            background: rgba(10, 17, 40, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin: 1rem 0;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        select option {
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .btn {
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: none;
+            margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--glow-accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: var(--glow);
+        }
+
+        .btc-address {
+            background: rgba(10, 17, 40, 0.6);
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            word-break: break-all;
+            border: 1.5px solid var(--primary);
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--glow);
+        }
+
+        .error-msg {
+            color: var(--error);
+            font-size: 0.9rem;
+            margin-top: 0.7rem;
+            display: none;
+        }
+
+        /* Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s forwards;
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md), rgba(100, 255, 218, 0.1) 0 0 20px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .review-meta h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .review-stars i {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        /* BTC Guide Section */
+        .btc-guide-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+        }
+
+        .btc-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 255, 218, 0.35);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15);
+        }
+
+        .guide-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .guide-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .guide-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .guide-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .guide-card ul li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            border: 1.5px solid rgba(100, 255, 218, 0.2);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), var(--glow);
+            border-color: var(--primary);
+        }
+
+        .feature:hover::before {
+            opacity: 1;
+        }
+
+        .feature i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .care-center {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-method {
+            background: rgba(10, 17, 40, 0.9);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .contact-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .contact-method:hover::before {
+            left: 100%;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 80px rgba(100, 255, 218, 0.15);
+            border-color: var(--primary);
+        }
+
+        .method-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .contact-method:nth-child(1) .method-icon { animation-delay: 0s; }
+        .contact-method:nth-child(2) .method-icon { animation-delay: 0.5s; }
+        .contact-method:nth-child(3) .method-icon { animation-delay: 1s; }
+        .contact-method:nth-child(4) .method-icon { animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .method-title {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .method-value {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+
+        .method-status {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .method-status.active {
+            background: rgba(100, 255, 218, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { box-shadow: 0 0 8px rgba(100, 255, 218, 0.4); }
+            50% { box-shadow: 0 0 16px rgba(100, 255, 218, 0.8); }
+        }
+
+        .method-status.active {
+            animation: pulseBadge 2s infinite;
+        }
+
+        .support-note {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .support-note h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .support-note p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-warning {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 1.4rem 1.6rem;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .contact-warning p {
+            margin: 0;
+        }
+
+        .method-value a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .method-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* How We Help Section */
+        .how-we-help {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .help-card {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.08) 0%, rgba(100, 255, 218, 0.03) 100%);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .help-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .help-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(100, 255, 218, 0.1);
+        }
+
+        .help-card-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .help-card h5 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .help-card-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .help-card-details {
+            background: rgba(10, 17, 40, 0.5);
+            border-left: 2px solid var(--primary);
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .response-time {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 4rem 0;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* About Section Styling */
+        #about {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.03) 0%, rgba(100, 255, 218, 0.01) 100%);
+        }
+
+        #about .container > p {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1.5px solid rgba(100, 255, 218, 0.2);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #about .container > p::before {
+            content: '✦';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.15;
+        }
+
+        /* PI Services Grid Fix */
+        #pi-hire .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        @media (min-width: 1200px) {
+            #pi-hire .services-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            #pi-hire .service-card {
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 300px;
+            }
+
+            #pi-hire .service-card:nth-child(n+7) {
+                flex: 0 1 calc(50% - 1rem);
+            }
+        }
+
+        /* Tidio Chat Widget Customization */
+        .tidio-chatbot {
+            --tidio-primary: var(--primary) !important;
+            --tidio-surface: var(--surface) !important;
+            --tidio-text: var(--text) !important;
+        }
+
+        /* Custom Chat Button Styling */
+        .tidio-5hhiig .tidio-chatbot-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+            box-shadow: var(--glow) !important;
+        }
+
+        .tidio-5hhiig .tidio-chatbot-button:hover {
+            transform: scale(1.05) !important;
+            box-shadow: var(--glow-accent) !important;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                transition: 0.4s;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .network-animation {
+                display: none;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                padding: 2rem;
+            }
+
+            .care-center {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-method {
+                padding: 1.5rem;
+            }
+
+            .method-icon {
+                font-size: 2.2rem;
+            }
+
+            .support-note {
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+
+            .how-we-help {
+                grid-template-columns: 1fr;
+            }
+
+            .help-card {
+                padding: 1.5rem;
+            }
+            h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .category-title { font-size: 1.5rem; }
+
+            #about .container > p {
+                padding: 2rem;
+            }
+
+            #pi-hire .services-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo-link">
+                    <div class="logo">THE GHOST</div>
+                    <div class="tagline">Cyber Security & Digital Forensic</div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#order">Order</a></li>
+                    <li><a href="#btc-guide">BTC Guide</a></li>
+                    <li><a href="#asset-recovery">Asset Recovery</a></li>
+                    <li><a href="#pi-hire">Private Investigator Hire</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="overlap-cards">
+            <div class="overlap-card">
+                <h4>Stealth Mode</h4>
+                <p>Zero detection operations</p>
+            </div>
+            <div class="overlap-card">
+                <h4>Elite Access</h4>
+                <p>Premium breach services</p>
+            </div>
+            <div class="overlap-card">
+                <h4>Recovery Pro</h4>
+                <p>Asset retrieval experts</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="neon-text" id="typingText">Invisible. Untraceable. Digital Mastery.<span class="typing-cursor"></span></h1>
+                <p>Welcome to THE GHOST, your trusted partner in advanced cybersecurity and digital forensics. We offer elite services for access, recovery, and investigations, ensuring discretion and efficiency. Starting at <strong style="color:var(--primary);">$350</strong>. Crypto recovery: <strong>21% fee</strong> on funds above $10K. BTC payments only.</p>
+                <a href="#services" class="cta-btn">Explore Our Services</a>
+            </div>
+        </div>
+        <div class="network-animation">
+            <svg viewBox="0 0 400 400">
+                <circle class="node" cx="200" cy="200" r="10" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="100" cy="100" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="300" cy="100" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="100" cy="300" r="8" fill="var(--primary)" opacity="0.5"/>
+                <circle class="node" cx="300" cy="300" r="8" fill="var(--primary)" opacity="0.5"/>
+                <line x1="200" y1="200" x2="100" y2="100" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="300" y2="100" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="100" y2="300" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                <line x1="200" y1="200" x2="300" y2="300" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+            </svg>
+        </div>
+        <div class="floating-code">01010101</div>
+        <div class="floating-code">function hack() {}</div>
+        <div class="floating-code">SELECT * FROM data;</div>
+        <div class="floating-code">encrypt(key);</div>
+    </section>
+
+    <!-- Cyber Operations -->
+    <section id="operations" class="operations blackhat-mode">
+        <div class="container">
+            <h2 class="section-title">Blackhat vs Whitehat Operations</h2>
+            <div class="operation-controls">
+                <button id="hatToggle" class="toggle-btn" data-mode="whitehat">Switch to Whitehat</button>
+            </div>
+            <div class="interactive-grid">
+                <div class="interactive-card blackhat-card">
+                    <span class="card-label">Blackhat</span>
+                    <h3>Stealth Exploitation</h3>
+                    <p>Precision payload delivery, covert breaches, and data extraction optimized for maximum stealth.</p>
+                    <div class="card-meta">
+                        <span>Targeted compromise</span>
+                        <span>Adaptive evasion</span>
+                    </div>
+                </div>
+                <div class="interactive-card whitehat-card">
+                    <span class="card-label">Whitehat</span>
+                    <h3>Red Team Defense</h3>
+                    <p>Realistic penetration testing, hardened remediation, and security validation for organizations that need resilience.</p>
+                    <div class="card-meta">
+                        <span>Vulnerability audit</span>
+                        <span>Risk mitigation</span>
+                    </div>
+                </div>
+                <div class="interactive-card ghost-card">
+                    <span class="card-label">Ghost Ops</span>
+                    <h3>Cyber Recon & Recovery</h3>
+                    <p>Invisible intelligence gathering, recovery missions, and anonymous response for high-risk digital scenarios.</p>
+                    <div class="card-meta">
+                        <span>Zero trace</span>
+                        <span>24/7 active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Complete Service Catalog</h2>
+
+            <!-- Account Hacking and Access -->
+            <h3 class="category-title">Account Hacking and Access Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart service-icon"></i>
+                    <h3>Walmart Account Hacking (with CC)</h3>
+                    <p>Secure access to Walmart profiles linked with payment information for comprehensive control and data extraction.</p>
+                    <div class="price">$400</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hashtag service-icon"></i>
+                    <h3>Social Media & WhatsApp Access</h3>
+                    <p>Full control over platforms like Instagram, Facebook, TikTok, Snapchat, Twitter/X, WhatsApp including recovery from lost access. Access to full chat history, media files, and deleted messages.</p>
+                    <div class="price">$555</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-envelope service-icon"></i>
+                    <h3>Email Account Access & Recovery</h3>
+                    <p>Inbox takeover for Gmail, Outlook, Yahoo, ProtonMail, with options for data archiving and secure recovery.</p>
+                    <div class="price">$550</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt service-icon"></i>
+                    <h3>Phone Tracking</h3>
+                    <p>Real-time GPS location, call logs, SMS monitoring, and app activity tracking for comprehensive device surveillance.</p>
+                    <div class="price">$750</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-desktop service-icon"></i>
+                    <h3>RDP Server Access</h3>
+                    <p>Remote desktop protocol access to compromised servers for data retrieval and control.</p>
+                    <div class="price">$1,100</div>
+                </div>
+          
+                <div class="service-card">
+                    <i class="fas fa-key service-icon"></i>
+                    <h3>Password Cracking</h3>
+                    <p>Advanced cracking using Hashcat, JohnTheRipper, and custom wordlists for secure password retrieval.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>Password Recovery</h3>
+                    <p>Recovery for Windows, macOS, Linux, BIOS, and encrypted drives using specialized tools.</p>
+                    <div class="price">$1,100</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home service-icon"></i>
+                    <h3>Smart Home Control</h3>
+                    <p>Control over Nest, Ring, Alexa devices including lights, locks, and cameras for integrated smart home management.</p>
+                    <div class="price">$1,300</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car service-icon"></i>
+                    <h3>GPS Vehicle Tracking</h3>
+                    <p>Live location tracking for OBD-II, Tesla, and fleet vehicles with detailed reporting.</p>
+                    <div class="price">$1,050</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Website Vulnerability Assessment</h3>
+                    <p>Full pentest report covering SQLi, XSS, RCE vulnerabilities for website security.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-credit-card service-icon"></i>
+                    <h3>PayPal Account Logs & Cookies Hacking</h3>
+                    <p>Access to PayPal wallets with balances above $5,500 using logs and cookies.</p>
+                    <div class="price">$550</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-camera service-icon"></i>
+                    <h3>IP Camera Access</h3>
+                    <p>Live feed and recordings from any IoT camera for surveillance purposes.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-exchange-alt service-icon"></i>
+                    <h3>Crypto Exchange Account Recovery</h3>
+                    <p>Recovery for Binance, Coinbase, Kraken with 2FA bypass and API key access.</p>
+                    <div class="price">$1,800</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wifi service-icon"></i>
+                    <h3>WiFi Network Assessment</h3>
+                    <p>WPA2/3 cracking, rogue AP detection, and MITM analysis for network security.</p>
+                    <div class="price">$1,100</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-university service-icon"></i>
+                    <h3>Bank Account Access</h3>
+                    <p>Credentials, history, and transfers for balances above $4,900.</p>
+                    <div class="price">$1,200</div>
+                </div>
+            </div>
+
+            <!-- Data Theft -->
+            <h3 class="category-title">Data Theft and Stolen Credentials</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-credit-card service-icon"></i>
+                    <h3>Stolen Credit Card Details (with CVV)</h3>
+                    <p>Full card information including PIN for immediate and secure use.</p>
+                    <div class="price">$195</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-id-card service-icon"></i>
+                    <h3>SSN (Social Security Number)</h3>
+                    <p>Single US SSN for setting up fraudulent accounts or identities.</p>
+                    <div class="price">$360</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-folder-open service-icon"></i>
+                    <h3>Fullz (Complete Identity Kit)</h3>
+                    <p> Bundled data including name, SSN, DOB for complete identity theft.</p>
+                    <div class="price">$500</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-piggy-bank service-icon"></i>
+                    <h3>Stolen Bank Login Credentials</h3>
+                    <p>Verified credentials with balances over $1,200 for access.</p>
+                    <div class="price">$450</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-id-badge service-icon"></i>
+                    <h3>US Driver's License Scan</h3>
+                    <p>High-quality forged or stolen digital scans for verification purposes.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport service-icon"></i>
+                    <h3>US Passport Scan</h3>
+                    <p>Premium fake or stolen passport images for identity verification.</p>
+                    <div class="price">$1,000</div>
+                </div>
+            </div>
+
+            <!-- Recovery and Tracking -->
+            <h3 class="category-title">Recovery and Tracking Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search-location service-icon"></i>
+                    <h3>IP Address Tracking and Location Service</h3>
+                    <p>Precise tracing of IP to physical locations for targeted operations or doxxing.</p>
+                    <div class="price">$950</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-undo service-icon"></i>
+                    <h3>Account Recovery Service</h3>
+                    <p>Social engineering-based recovery for social media and email accounts.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>Recovery of Scammed Funds & Valuable Items</h3>
+                    <p>Expert recovery of funds from bank accounts, wire transfers, and valuables like cars or jewelry above $10K.</p>
+                    <div class="price">21% of Recovered.</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lock-open service-icon"></i>
+                    <h3>Ransomware Decryption</h3>
+                    <p>Private key recovery for REvil, Conti, LockBit ransomware variants.</p>
+                    <div class="price">$2,900</div>
+                </div>
+            </div>
+
+            <!-- Malware and Exploits -->
+            <h3 class="category-title">Malware and Exploit Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Infostealer Malware Subscription</h3>
+                    <p>Monthly access to tools for harvesting credentials from targeted systems.</p>
+                    <div class="price">$1,124</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-skull-crossbones service-icon"></i>
+                    <h3>Ransomware-as-a-Service</h3>
+                    <p>Ready-to-deploy ransomware with command and control panel for 1 month.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3>Custom Malware Development</h3>
+                    <p>Tailored viruses or trojans designed for specific targets and objectives.</p>
+                    <div class="price">$3,188</div>
+                </div>
+            </div>
+
+            <!-- Attack and Disruption -->
+            <h3 class="category-title">Attack and Disruption Services</h3>
+            <div class="services-grid">
+      
+               <div class="service-card">
+                    <i class="fas fa-clock service-icon"></i>
+                    <h3>DDoS Attack (24 Hours)</h3>
+                    <p>Extended denial of service for unprotected targets to cause downtime.</p>
+                    <div class="price">$450</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>DDoS Attack (Per Hour, Protected)</h3>
+                    <p>Bypassing protections for targeted disruption per hour.</p>
+                    <div class="price">$2,600</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Computer/Phone Hacking</h3>
+                    <p>Remote access through exploits for devices.</p>
+                    <div class="price">$2,430</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Website Hacking (Full Compromise)</h3>
+                    <p>Code injection or data theft for complete website compromise.</p>
+                    <div class="price">$2,940</div>
+                </div>
+            </div>
+
+            <!-- Specialized -->
+            <h3 class="category-title">Specialized or Niche Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user-graduate service-icon"></i>
+                    <h3>Changing School/University Grades</h3>
+                    <p>Database hacks to alter academic records securely.</p>
+                    <div class="price">$2,260</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>Debt/Credit Report Manipulation</h3>
+                    <p>Falsification of financial records for credit improvement.</p>
+                    <div class="price">$1,570</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-secret service-icon"></i>
+                    <h3>Personal Doxxing Attack</h3>
+                    <p>Exposure of private information for targeted harassment.</p>
+                    <div class="price">$3,510</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building service-icon"></i>
+                    <h3>Small Business Full Access</h3>
+                    <p>Complete compromise of small business networks.</p>
+                    <div class="price">$4,000</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cog service-icon"></i>
+                    <h3>Corporate Email Takeover</h3>
+                    <p>Admin rights takeover for Office 365, GSuite.</p>
+                    <div class="price">$2,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users-cog service-icon"></i>
+                    <h3>Corporate Domain Admin Access</h3>
+                    <p>High-privilege access to company systems.</p>
+                    <div class="price">$4,000</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-video service-icon"></i>
+                    <h3>Deepfake Video Creation</h3>
+                    <p>Custom 4K videos with face-swap and voice cloning.</p>
+                    <div class="price">$3,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-medical service-icon"></i>
+                    <h3>Complete Medical Record</h3>
+                    <p>Full health data access for sensitive operations.</p>
+                    <div class="price">$4,200</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport service-icon"></i>
+                    <h3>EU Passport (Physical Forgery)</h3>
+                    <p>High-end physical fake documents for border use.</p>
+                    <div class="price">$4,800</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Zero-Day Exploit (Premium)</h3>
+                    <p>Undiscovered software vulnerabilities for advanced attacks.</p>
+                    <div class="price">$35,000</div>
+                </div>
+            </div>
+
+            <!-- Tutorials & Tools -->
+            <h3 class="category-title">Tutorials & Tools</h3>
+            <div class="services-grid">
+
+                <!-- Tool 1 -->
+                <div class="service-card">
+                    <i class="fas fa-book-open service-icon"></i>
+                    <h3>Full OSINT Mastery Course</h3>
+                    <p>7-day video course covering Maltego, Recon-ng, Shodan, IntelX, Google Dorks with scripts and templates included for practical application.</p>
+                    <div class="price">$1,200</div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="service-card">
+                    <i class="fas fa-terminal service-icon"></i>
+                    <h3>Custom Phishing Kit (2025)</h3>
+                    <p>Evasion-ready kit with Evilginx2, Gophish, custom templates, anti-bot bypass, full source code, and setup guide.</p>
+                    <div class="price">$2,500</div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="service-card">
+                    <i class="fas fa-fingerprint service-icon"></i>
+                    <h3>Fingerprint Spoofing Suite</h3>
+                    <p>Browser fingerprint changer for Canvas, WebGL, Fonts, Audio, undetectable by Cloudflare and Akamai.</p>
+                    <div class="price">$950</div>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="service-card">
+                    <i class="fas fa-bug service-icon"></i>
+                    <h3>Exploit Development Bootcamp</h3>
+                    <p>Training on buffer overflow, ROP, kernel exploits for Windows/Linux, with 5 live sessions, labs, and private exploit DB access.</p>
+                    <div class="price">$3,800</div>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="service-card">
+                    <i class="fas fa-keyboard service-icon"></i>
+                    <h3>Keylogger + Remote Installer</h3>
+                    <p>Stealth keylogger for Windows/macOS that bypasses AV, with C2 panel and auto-exfiltration features.</p>
+                    <div class="price">$1,800</div>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="service-card">
+                    <i class="fas fa-shield-virus service-icon"></i>
+                    <h3>AV Evasion Framework</h3>
+                    <p>Packers, crypters, obfuscators compatible with Defender, Kaspersky, Bitdefender, updated weekly.</p>
+                    <div class="price">$2,200</div>
+                </div>
+
+                <!-- Tool 7 -->
+                <div class="service-card">
+                    <i class="fas fa-satellite-dish service-icon"></i>
+                    <h3>SMS & Call Spoofing Tool</h3>
+                    <p>Unlimited spoofing in 180+ countries with web panel and API integration.</p>
+                    <div class="price">$1,500</div>
+                </div>
+
+                <!-- Tool 8 -->
+                <div class="service-card">
+                    <i class="fas fa-code-branch service-icon"></i>
+                    <h3>Cobalt Strike License (Cracked)</h3>
+                    <p>Full C2 framework with Beacon, Malleable C2, Aggressor scripts for 6-month access.</p>
+                    <div class="price">$6,500</div>
+                </div>
+
+                <!-- Tool 9 -->
+                <div class="service-card">
+                    <i class="fas fa-wrench service-icon"></i>
+                    <h3>Metasploit Pro (Lifetime)</h3>
+                    <p>Lifetime access with GUI, reporting, web exploits, and post-exploitation modules.</p>
+                    <div class="price">$4,200</div>
+                </div>
+
+                <!-- Tool 10 -->
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Private RDP + VPS Setup Guide</h3>
+                    <p>Step-by-step guide for anonymity, OPSEC, clean IP, root access, with config files included.</p>
+                    <div class="price">$750</div>
+                </div>
+                <!-- PASTE BELOW THIS LINE -->
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap service-icon"></i>
+                    <h3>Full Introduction To Hacking Mastery Course</h3>
+                    <p>Beginner to intermediate course covering Kali Linux, Nmap, Metasploit, Burp Suite, SQLi, XSS with 40+ hours of video and labs.</p>
+                    <div class="price">$650</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Full Middle-Level Hacking Mastery Course</h3>
+                    <p>Advanced training on buffer overflow, reverse engineering, exploit development, post-exploitation, privilege escalation with real-world CTFs.</p>
+                    <div class="price">$1,300</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-ninja service-icon"></i>
+                    <h3>Full Pro-Level Hacking Mastery Course</h3>
+                    <p>Elite level course on zero-days, kernel exploits, red team operations, C2 frameworks, stealth persistence with private mentorship.</p>
+                    <div class="price">$2,500</div>
+                </div>
+            </div>
+
+            <!-- Crypto Recovery -->
+            <h3 class="category-title">Crypto Wallet Recovery Services (Funds > $10K)</h3>
+            <div class="services-grid">
+                <div class="service-card crypto-recovery">
+                    <i class="fab fa-bitcoin service-icon"></i>
+                    <h3>BTC Wallet Recovery</h3>
+                    <p>Recovery of lost Bitcoin wallets with funds above $10K using advanced techniques.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fab fa-ethereum service-icon"></i>
+                    <h3>ETH Wallet Recovery</h3>
+                    <p>Ethereum wallet restoration for balances over $10K.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-coins service-icon"></i>
+                    <h3>SOL Wallet Recovery</h3>
+                    <p>Solana wallet recovery for $10K+ balances.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-coins service-icon"></i>
+                    <h3>XMR Wallet Recovery</h3>
+                    <p>Monero wallet recovery for $10K+ balances.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+                <div class="service-card crypto-recovery">
+                    <i class="fas fa-dollar-sign service-icon"></i>
+                    <h3>USDT Wallet Recovery</h3>
+                    <p>Tether (USDT) wallet recovery for $10K+.</p>
+                    <div class="price">21% of Total</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asset Recovery -->
+    <section id="asset-recovery">
+        <div class="container">
+            <h2 class="section-title">Asset Recovery Services</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">Our asset recovery services specialize in retrieving lost or scammed assets through advanced digital forensics and cybersecurity techniques. All recoveries for funds above $10K are charged at 21% of the recovered amount. We handle various scenarios including crypto scams, bank fraud, and physical asset theft with high success rates.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fab fa-bitcoin service-icon"></i>
+                    <h3>Cryptocurrency Wallet Recovery</h3>
+                    <p>Expert recovery of lost or inaccessible crypto wallets including BTC, ETH, SOL, XMR, XRP, USDT, and more using seed phrase analysis and blockchain forensics.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-university service-icon"></i>
+                    <h3>Bank Account and Wire Transfer Recovery</h3>
+                    <p>Tracing and recovering funds from fraudulent bank transfers or unauthorized access through financial forensics and legal channels.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem service-icon"></i>
+                    <h3>Valuable Items Recovery (e.g., Cars, Jewelry)</h3>
+                    <p>Using digital tracking, GPS forensics, and investigative techniques to locate and recover physical valuables lost to scams or theft.</p>
+                    <div class="price">21% of Recovered Value (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-exchange-alt service-icon"></i>
+                    <h3>Investment Scam Recovery</h3>
+                    <p>Recovery from fake investment schemes, Ponzi operations, or fraudulent trading platforms via transaction tracing and asset seizure.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lock service-icon"></i>
+                    <h3>Ransomware Asset Recovery</h3>
+                    <p>Decryption of locked assets without paying ransom, using private key recovery and malware analysis.</p>
+                    <div class="price">$2,900 + 21% if Additional Funds Recovered</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>General Scammed Funds Recovery</h3>
+                    <p>Comprehensive service for any financial scam involving digital transactions, with multi-layered forensic investigation.</p>
+                    <div class="price">21% of Recovered Amount (Min $10K)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Investigator Hire -->
+    <section id="pi-hire">
+        <div class="container">
+            <h2 class="section-title">Private Investigator Hire Services</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">Our licensed private investigators offer discreet services combining traditional fieldwork with digital forensics. Prices vary based on case complexity, duration, and location. We handle personal, corporate, and legal investigations with full confidentiality.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search service-icon"></i>
+                    <h3>Background Checks</h3>
+                    <p>In-depth checks covering criminal records, employment history, education verification, and social media deep dives for risk assessment.</p>
+                    <div class="price">$1,800</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-eye service-icon"></i>
+                    <h3>Surveillance</h3>
+                    <p>Physical tailing, digital monitoring, and video evidence collection for activity tracking over specified periods.</p>
+                    <div class="price">$200 per Hour (Minimum 8 Hours per Day)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-heart-broken service-icon"></i>
+                    <h3>Infidelity Investigations</h3>
+                    <p>Discreet evidence gathering on suspected cheating, including surveillance, digital forensics, and report compilation.</p>
+                    <div class="price">$1,500 - $5,000 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-friends service-icon"></i>
+                    <h3>Missing Persons Locate</h3>
+                    <p>Using OSINT, database searches, and on-ground investigations to locate missing individuals efficiently.</p>
+                    <div class="price">$2,000 - $4,000 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-pie service-icon"></i>
+                    <h3>Asset Searches</h3>
+                    <p>Tracing hidden assets like bank accounts, properties, and investments for divorce or debt recovery cases.</p>
+                    <div class="price">$1,500 - $3,000 (Flat Fee)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>Social Media Investigations</h3>
+                    <p>Analysis of profiles, connections, posts, and deleted content for evidence in legal or personal matters.</p>
+                    <div class="price">$1,500 - $3,500 (Package)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase service-icon"></i>
+                    <h3>Corporate Espionage Investigations</h3>
+                    <p>Identifying leaks, counter-espionage measures, and internal threat assessments for businesses.</p>
+                    <div class="price">$3,000+ (Custom Quote)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-child service-icon"></i>
+                    <h3>Child Custody Investigations</h3>
+                    <p>Evidence on parental fitness, living conditions, and behaviors to support custody cases.</p>
+                    <div class="price">$2,000 - $5,000 (Package)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order">
+        <div class="container">
+            <h2 class="section-title">Place Your Order</h2>
+            <div class="order-process">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step completed" data-step="1">
+                            <div class="step-icon"><i class="fas fa-list"></i></div>
+                            <div class="step-label">Select Service</div>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-icon"><i class="fas fa-edit"></i></div>
+                            <div class="step-label">Order Details</div>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                            <div class="step-label">Payment</div>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-icon"><i class="fas fa-check"></i></div>
+                            <div class="step-label">Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 1: Service Selection -->
+                <div class="step active" id="step1">
+                    <h3>Select Service</h3>
+                    <div class="form-group">
+                        <label>Service Required</label>
+                        <select id="serviceSelect" required>
+                            <option value="">Choose a service...</option>
+                            <!-- Original services -->
+                            <option value="Walmart Account Hacking (with CC)|$400">Walmart Account Hacking (with CC) - $400</option>
+                            <option value="Social Media & WhatsApp Access|$555">Social Media & WhatsApp Access - $555</option>
+                            <option value="Email Account Access & Recovery|$550">Email Account Access & Recovery - $550</option>
+                            <option value="Phone Tracking|$750">Phone Tracking - $750</option>
+                            <option value="RDP Server Access|$1,100">RDP Server Access - $1,100</option>
+                            <option value="Password Cracking|$350">Password Cracking - $650</option>
+                            <option value="Password Recovery|$1,100">Password Recovery - $1,100</option>
+                            <option value="Smart Home Control|$1,300">Smart Home Control - $1,300</option>
+                            <option value="GPS Vehicle Tracking|$1,050">GPS Vehicle Tracking - $1,050</option>
+                            <option value="Website Vulnerability Assessment|$1,200">Website Vulnerability Assessment - $1,200</option>
+                            <option value="PayPal Account Logs & Cookies Hacking|$550">PayPal Account Logs & Cookies Hacking - $550</option>
+                            <option value="IP Camera Access|$1,200">IP Camera Access - $1,200</option>
+                            <option value="Crypto Exchange Account Recovery|$1,800">Crypto Exchange Account Recovery - $1,800</option>
+                            <option value="WiFi Network Assessment|$1,100">WiFi Network Assessment - $1,100</option>
+                            <option value="Bank Account Access|$1,200">Bank Account Access - $1,200</option>
+                            <option value="Stolen Credit Card Details (with CVV)|$195">Stolen Credit Card Details (with CVV) - $195</option>
+                            <option value="SSN (Social Security Number)|$360">SSN (Social Security Number) - $360</option>
+                            <option value="Fullz (Complete Identity Kit)|$500">Fullz (Complete Identity Kit) - $500</option>
+                            <option value="Stolen Bank Login Credentials|$450">Stolen Bank Login Credentials - $450</option>
+                            <option value="US Driver's License Scan|$650">US Driver's License Scan - $650</option>
+                            <option value="US Passport Scan|$1,000">US Passport Scan - $1,000</option>
+                            <option value="IP Address Tracking and Location Service|$950">IP Address Tracking and Location Service - $950</option>
+                            <option value="Account Recovery Service|$1,200">Account Recovery Service - $1,200</option>
+                            <option value="Recovery of Scammed Funds & Valuable Items|21% of Recovered">Recovery of Scammed Funds & Valuable Items - 21% of Recovered</option>
+                            <option value="Ransomware Decryption|$2,900">Ransomware Decryption - $2,900</option>
+                            <option value="Infostealer Malware Subscription|$1,124">Infostealer Malware Subscription - $1,124</option>
+                            <option value="Ransomware-as-a-Service|$1,200">Ransomware-as-a-Service - $1,200</option>
+                            <option value="Custom Malware Development|$3,188">Custom Malware Development - $3,188</option>
+                            <option value="DDoS Attack (24 Hours)|$450">DDoS Attack (24 Hours) - $450</option>
+                            <option value="DDoS Attack (Per Hour, Protected)|$2,600">DDoS Attack (Per Hour, Protected) - $2,600</option>
+                            <option value="Computer/Phone Hacking|$2,430">Computer/Phone Hacking - $2,430</option>
+                            <option value="Website Hacking (Full Compromise)|$2,940">Website Hacking (Full Compromise) - $2,940</option>
+                            <option value="Changing School/University Grades|$2,260">Changing School/University Grades - $2,260</option>
+                            <option value="Debt/Credit Report Manipulation|$1,570">Debt/Credit Report Manipulation - $1,570</option>
+                            <option value="Personal Doxxing Attack|$3,510">Personal Doxxing Attack - $3,510</option>
+                            <option value="Small Business Full Access|$4,000">Small Business Full Access - $4,000</option>
+                            <option value="Corporate Email Takeover|$2,200">Corporate Email Takeover - $2,200</option>
+                            <option value="Corporate Domain Admin Access|$4,000">Corporate Domain Admin Access - $4,000</option>
+                            <option value="Deepfake Video Creation|$3,200">Deepfake Video Creation - $3,200</option>
+                            <option value="Complete Medical Record|$4,200">Complete Medical Record - $4,200</option>
+                            <option value="EU Passport (Physical Forgery)|$4,800">EU Passport (Physical Forgery) - $4,800</option>
+                            <option value="Zero-Day Exploit (Premium)|$80,000">Zero-Day Exploit (Premium) - $35,000</option>
+                            <option value="Full OSINT Mastery Course|$1,200">Full OSINT Mastery Course - $1,200</option>
+                            <option value="Custom Phishing Kit (2025)|$2,500">Custom Phishing Kit (2025) - $2,500</option>
+                            <option value="Fingerprint Spoofing Suite|$950">Fingerprint Spoofing Suite - $950</option>
+                            <option value="Exploit Development Bootcamp|$3,800">Exploit Development Bootcamp - $3,800</option>
+                            <option value="Keylogger + Remote Installer|$1,800">Keylogger + Remote Installer - $1,800</option>
+                            <option value="AV Evasion Framework|$2,200">AV Evasion Framework - $2,200</option>
+                            <option value="SMS & Call Spoofing Tool|$1,500">SMS & Call Spoofing Tool - $1,500</option>
+                            <option value="Cobalt Strike License (Cracked)|$6,500">Cobalt Strike License (Cracked) - $6,500</option>
+                            <option value="Metasploit Pro (Lifetime)|$4,200">Metasploit Pro (Lifetime) - $4,200</option>
+                            <option value="Private RDP + VPS Setup Guide|$750">Private RDP + VPS Setup Guide - $750</option>
+                            <option value="Full Introduction To Hacking Mastery Course|$650">Full Introduction To Hacking Mastery Course - $650</option>
+                            <option value="Full Middle-Level Hacking Mastery Course|$1,300">Full Middle-Level Hacking Mastery Course - $1,300</option>
+                            <option value="Full Pro-Level Hacking Mastery Course|$2,500">Full Pro-Level Hacking Mastery Course - $2,500</option>
+                            <option value="BTC Wallet Recovery|21% of Total">BTC Wallet Recovery - 21% of Total</option>
+                            <option value="ETH Wallet Recovery|21% of Total">ETH Wallet Recovery - 21% of Total</option>
+                            <option value="SOL Wallet Recovery|21% of Total">SOL Wallet Recovery - 21% of Total</option>
+                            <option value="XMR Wallet Recovery|21% of Total">XMR Wallet Recovery - 21% of Total</option>
+                            <option value="USDT Wallet Recovery|21% of Total">USDT Wallet Recovery - 21% of Total</option>
+
+                            <!-- Asset Recovery Services -->
+                            <option value="Cryptocurrency Wallet Recovery|21% of Recovered Amount (Min $10K)">Cryptocurrency Wallet Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Bank Account and Wire Transfer Recovery|21% of Recovered Amount (Min $10K)">Bank Account and Wire Transfer Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Valuable Items Recovery (e.g., Cars, Jewelry)|21% of Recovered Value (Min $10K)">Valuable Items Recovery (e.g., Cars, Jewelry) - 21% of Recovered Value (Min $10K)</option>
+                            <option value="Investment Scam Recovery|21% of Recovered Amount (Min $10K)">Investment Scam Recovery - 21% of Recovered Amount (Min $10K)</option>
+                            <option value="Ransomware Asset Recovery|$2,900 + 21% if Additional Funds Recovered">Ransomware Asset Recovery - $2,900 + 21% if Additional Funds Recovered</option>
+                            <option value="General Scammed Funds Recovery|21% of Recovered Amount (Min $10K)">General Scammed Funds Recovery - 21% of Recovered Amount (Min $10K)</option>
+
+                            <!-- Private Investigator Hire Services -->
+                            <option value="Background Checks|$1,800 (Flat Fee)">Background Checks - $1,800 (Flat Fee)</option>
+                            <option value="Surveillance|$200 per Hour (Minimum 8 Hours)">Surveillance - $200 per Hour (Minimum 8 Hours per Day)</option>
+                            <option value="Infidelity Investigations|$1,500 - $5,000 (Package)">Infidelity Investigations - $1,500 - $5,000 (Package)</option>
+                            <option value="Missing Persons Locate|$2,000 - $4,000 (Package)">Missing Persons Locate - $2,000 - $4,000 (Package)</option>
+                            <option value="Asset Searches|$1,500 - $3,000 (Flat Fee)">Asset Searches - $1,500 - $3,000 (Flat Fee)</option>
+                            <option value="Social Media Investigations|$1,500 - $3,500 (Package)">Social Media Investigations - $1,500 - $3,500 (Package)</option>
+                            <option value="Corporate Espionage Investigations|$3,000+ (Custom Quote)">Corporate Espionage Investigations - $3,000+ (Custom Quote)</option>
+                            <option value="Child Custody Investigations|$2,000 - $5,000 (Package)">Child Custody Investigations - $2,000 - $5,000 (Package)</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Next</button>
+                </div>
+
+                <!-- Step 2: Target Details -->
+                <div class="step" id="step2">
+                    <h3>Order Details</h3>
+                    <div class="form-group">
+                        <label>Selected Service</label>
+                        <div id="selectedService"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Details</label>
+                        <input type="text" id="targetDetails" placeholder="Username, email, wallet address, URL, etc." required />
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Information</label>
+                        <textarea id="additionalInfo" rows="4" placeholder="Known passwords, 2FA status, recovery hints, etc."></textarea>
+                    </div>
+                    <button class="btn btn-secondary" onclick="prevStep(1)">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)">Proceed to Payment</button>
+                </div>
+
+                <!-- Step 3: Payment -->
+                <div class="step" id="step3">
+                    <h3>Payment (BTC Only)</h3>
+                    <p>Send exact amount to the address below. Use only BTC.</p>
+                    <div class="btc-address" id="btcAddress">bc1qvxzvx0hdcahwys5v4yuqh5er9myuy4hcj3yudl</div>
+                    <p><strong>Amount Due:</strong> <span id="amountDue">$0.00</span></p>
+                    <div class="form-group">
+                        <label>Enter Your BTC Transaction ID (64 hex characters)</label>
+                        <input type="text" id="txid" placeholder="e.g., a1b2c3d4e5f6..." maxlength="64" />
+                        <div class="error-msg" id="txidError">Invalid TXID. Must be 64 hex characters.</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                    <button class="btn btn-primary" onclick="validateTXID()">Confirm Payment</button>
+                </div>
+
+                <!-- Step 4: Status -->
+                <div class="step" id="step4">
+                    <h3>Payment Status</h3>
+                    <p id="paymentStatus">Checking transaction...</p>
+                    <p id="orderId" style="display:none;"></p>
+                    <div style="margin-top:2rem; padding:1.5rem; background:rgba(100, 255, 218, 0.05); border-radius:12px; border:1px solid var(--primary);">
+                        <p><strong>After payment is confirmed:</strong></p>
+                        <p>Email us at <strong>theghostcyber@tuta.io</strong> with your TXID, order details, and unique Order ID for immediate processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BTC Guide -->
+    <section id="btc-guide" class="btc-guide-section">
+        <div class="container">
+            <h2 class="section-title">How to Get Bitcoin (BTC)</h2>
+            <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:var(--text-muted);">We only accept Bitcoin (BTC) for all services. Here's a complete guide to acquiring Bitcoin securely and anonymously.</p>
+            
+            <div class="btc-guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>1. Cryptocurrency Exchanges</h3>
+                    <p><strong>Recommended Platforms:</strong></p>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• <strong>Kraken</strong> - High liquidity, competitive fees (0.16%-0.26%)</li>
+                        <li>• <strong>Coinbase</strong> - Beginner-friendly, 1.49% + network fees</li>
+                        <li>• <strong>Gemini</strong> - Secure, 1.49% maker, 2.49% taker</li>
+                        <li>• <strong>Bitstamp</strong> - Reliable, 0.5% fees for high volume</li>
+                    </ul>
+                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Process:</strong> Sign up → Verify ID → Add payment method → Buy BTC → Withdraw to your wallet</p>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>2. Privacy-Focused Exchanges</h3>
+                    <p><strong>For Anonymous Purchases:</strong></p>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• <strong>Monero.com</strong> - No KYC required, decentralized</li>
+                        <li>• <strong>Bisq</strong> - P2P trading, complete privacy</li>
+                        <li>• <strong>LocalBitcoins</strong> - Direct peer-to-peer, cash options</li>
+                        <li>• <strong>Hodl Hodl</strong> - Non-custodial marketplace</li>
+                    </ul>
+                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Advantage:</strong> Minimal verification requirements, greater anonymity</p>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>3. Payment Methods</h3>
+                    <p><strong>Common Ways to Buy:</strong></p>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• <strong>Bank Transfer</strong> - Lowest fees (0.1%-0.5%), slower (1-3 days)</li>
+                        <li>• <strong>Credit/Debit Card</strong> - Instant, higher fees (2%-5%)</li>
+                        <li>• <strong>PayPal</strong> - Quick, fees ~3.49%</li>
+                        <li>• <strong>Cash</strong> - Anonymous, P2P platforms only</li>
+                    </ul>
+                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Recommendation:</strong> Bank transfers for cost-efficiency, cards for speed</p>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>4. Secure Wallet Setup</h3>
+                    <p><strong>Types of Wallets:</strong></p>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• <strong>Hardware Wallets</strong> - Ledger, Trezor (most secure, $50-100)</li>
+                        <li>• <strong>Cold Wallets</strong> - Electrum, Blue Wallet (offline storage)</li>
+                        <li>• <strong>Mobile Wallets</strong> - Trust Wallet, Mycelium (convenient)</li>
+                    </ul>
+                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Best Practice:</strong> Hardware wallet for large amounts, mobile for transactions</p>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>5. Pro Tips</h3>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• <strong>Buy During Dips:</strong> Monitor price, purchase during downturns</li>
+                        <li>• <strong>Fee Strategy:</strong> Batch purchases, use limit orders</li>
+                        <li>• <strong>Security:</strong> Enable 2FA on all accounts, use unique passwords</li>
+                        <li>• <strong>Tax Aware:</strong> Keep records for tax purposes (varies by jurisdiction)</li>
+                        <li>• <strong>Testing:</strong> Send small amount first before large transfers</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-ban"></i></div>
+                    <h3>6. What to Avoid</h3>
+                    <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
+                        <li>• ❌ Sketchy exchanges with no verification</li>
+                        <li>• ❌ Storing large amounts on exchange wallets</li>
+                        <li>• ❌ Public WiFi for crypto transactions</li>
+                        <li>• ❌ Clicking suspicious links or emails</li>
+                        <li>• ❌ Sharing private keys or seed phrases</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top:3rem; padding:2rem; background:linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%); border:1px solid rgba(100, 255, 218, 0.2); border-radius:12px; text-align:center;">
+                <h3 style="color:var(--primary); margin-bottom:1rem;">Ready to Place Your Order?</h3>
+                <p style="margin-bottom:1.5rem; color:var(--text-muted);">Follow this guide to acquire Bitcoin, then proceed to our Order section to select your service.</p>
+                <a href="#order" class="btn btn-primary" style="text-decoration:none;">Go to Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Client Reviews</h2>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">KX</div>
+                        <div class="review-meta">
+                            <h4>@KryptoX</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Lost access to my $42K ETH wallet from 2021. Sent seed phrase fragments. They recovered it in 18 hours. 
+                        21% fee hurt, but got $33.2K back. Legit, but expensive."
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">DR</div>
+                        <div class="review-meta">
+                            <h4>@DarkRiser</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Paid $900 for 48-hour DDoS on a competitor. Site went down within 3 minutes. 
+                        No logs, no warnings. Worked perfectly. Will use again."
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">NL</div>
+                        <div class="review-meta">
+                            <h4>@NightLurker</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Got full Instagram access to my ex’s account. Saw DMs, archived stories, even deleted posts. 
+                        $550 and 12 hours. Creepy, but it worked."
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SH</div>
+                        <div class="review-meta">
+                            <h4>@ShadowHawk</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Bank login with $18K balance. Transferred to my account in 3 clicks. 
+                        No alerts triggered. Clean exit. Worth every penny."
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">VX</div>
+                        <div class="review-meta">
+                            <h4>@VoidX</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Bought WinRAR zero-day for $80K. Already made $2.1M in 2 weeks. 
+                        ROI is insane. They don’t play games."
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CR</div>
+                        <div class="review-meta">
+                            <h4>@CryptoReaper</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Scammed out of $27K USDT on a fake exchange. Ghost recovered $21.3K after fee. 
+                        Better than zero. Took 4 days. Not bad."
+                    </div>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BL</div>
+                        <div class="review-meta">
+                            <h4>@BlackLotus</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Grade changed from F to A in university portal. $5,260. 
+                        Professor never noticed. Took 36 hours. Risky but worked."
+                    </div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">PH</div>
+                        <div class="review-meta">
+                            <h4>@Phantom</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Tracked an IP to an apartment in Berlin. Got full address, ISP logs, even neighbors. 
+                        $1,950. Overkill, but accurate."
+                    </div>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ST</div>
+                        <div class="review-meta">
+                            <h4>@SilentTiger</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Corporate domain admin access. Full AD takeover in 19 hours. 
+                        $5K. No alerts. Clean. Professional."
+                    </div>
+                </div>
+
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WZ</div>
+                        <div class="review-meta">
+                            <h4>@Wizard</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Ransomware decryption for Conti. Paid $2,900. Got files back in 11 hours. 
+                        No data leaked. Saved my business."
+                    </div>
+                </div>
+
+                <!-- Review 11 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FX</div>
+                        <div class="review-meta">
+                            <h4>@Fox</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Netflix account with 4K. $350. Works on 3 devices. 
+                        No password change. Still active after 2 months."
+                    </div>
+                </div>
+
+                <!-- Review 12 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RV</div>
+                        <div class="review-meta">
+                            <h4>@Raven</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Phone tracking on Android. Real-time GPS, SMS, WhatsApp. 
+                        $850. Battery drain was high, but accurate."
+                    </div>
+                </div>
+
+                <!-- Review 13 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SP</div>
+                        <div class="review-meta">
+                            <h4>@Spectre</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Custom malware for targeted infostealer. $3,188. 
+                        Harvested 400+ credentials in 3 days. Solid."
+                    </div>
+                </div>
+
+                <!-- Review 14 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">HN</div>
+                        <div class="review-meta">
+                            <h4>@Hound</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Doxxing package. Full name, address, family, job. $5,510. 
+                        Too much info. Scary accurate."
+                    </div>
+                </div>
+
+                <!-- Review 15 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CT</div>
+                        <div class="review-meta">
+                            <h4>@Cipher</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Walmart account with CC. Bought $1,200 in gift cards. 
+                        No blocks. $500 well spent."
+                    </div>
+                </div>
+
+                <!-- Review 16 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JD</div>
+                        <div class="review-meta">
+                            <h4>@Jade</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Deepfake video of boss saying racist stuff. 4K, voice clone. 
+                        $4,200. Looked real. Leaked. Chaos."
+                    </div>
+                </div>
+
+                <!-- Review 17 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">GR</div>
+                        <div class="review-meta">
+                            <h4>@Grim</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "EU passport forgery. Used at airport. Passed scan. 
+                        $3,800. High quality. Nervous, but worked."
+                    </div>
+                </div>
+
+                <!-- Review 18 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BT</div>
+                        <div class="review-meta">
+                            <h4>@Byte</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "WiFi crack on WPA3 router. Got in 4 hours. $2,000. 
+                        Owner never knew. Full MITM."
+                    </div>
+                </div>
+
+                <!-- Review 19 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SL</div>
+                        <div class="review-meta">
+                            <h4>@Slate</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "PayPal with $9K balance. Transferred out. $1,500. 
+                        Account still active. No freeze."
+                    </div>
+                </div>
+
+                <!-- Review 20 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">NX</div>
+                        <div class="review-meta">
+                            <h4>@Nexus</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Smart home takeover. Turned off cameras, unlocked doors. 
+                        $1,100. Scary easy."
+                    </div>
+                </div>
+
+                <!-- Review 21 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FL</div>
+                        <div class="review-meta">
+                            <h4>@Flare</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Credit report cleaned. Removed 3 defaults. $2,570. 
+                        Score up 120 points. Legit."
+                    </div>
+                </div>
+
+                <!-- Review 22 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">VR</div>
+                        <div class="review-meta">
+                            <h4>@Viper</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "RDP to AWS server. Full root. $1,000. 
+                        Deployed miner. Made $4K in a week."
+                    </div>
+                </div>
+
+                <!-- Review 23 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ZK</div>
+                        <div class="review-meta">
+                            <h4>@Zeke</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Medical record access. Full patient file. $5,000. 
+                        Blackmail worked. Paid fast."
+                    </div>
+                </div>
+
+                <!-- Review 24 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">QN</div>
+                        <div class="review-meta">
+                            <h4>@Quinn</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Website full compromise. Injected backdoor. $3,940. 
+                        Owner still clueless."
+                    </div>
+                </div>
+
+                <!-- Review 25 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">LX</div>
+                        <div class="review-meta">
+                            <h4>@Lynx</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Password recovery on encrypted VeraCrypt drive. $1,100. 
+                        Took 9 hours. Got in."
+                    </div>
+                </div>
+
+                <!-- Review 26 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">TR</div>
+                        <div class="review-meta">
+                            <h4>@Troy</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "SOL wallet with $28K. Recovered. Paid 21%. 
+                        Got $22.1K. Better than lost."
+                    </div>
+                </div>
+
+                <!-- Review 27 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MK</div>
+                        <div class="review-meta">
+                            <h4>@Mako</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "IP camera in hotel room. Live feed + recordings. $1,500. 
+                        Creepy. But worked."
+                    </div>
+                </div>
+
+                <!-- Review 28 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RD</div>
+                        <div class="review-meta">
+                            <h4>@Red</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Small business network full access. $6,000. 
+                        Deployed ransomware. Paid out."
+                    </div>
+                </div>
+
+                <!-- Review 29 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">GS</div>
+                        <div class="review-meta">
+                            <h4>@Ghost</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Corporate email takeover. Sent fake invoice. $3,200. 
+                        $180K wired. Clean."
+                    </div>
+                </div>
+
+                <!-- Review 30 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WL</div>
+                        <div class="review-meta">
+                            <h4>@Wolf</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "BTC wallet from 2017. $65K. Recovered. Paid 21%. 
+                        Got $51.3K. Life-changing."
+                    </div>
+                </div>
+
+                <!-- Additional Reviews for PI and Asset Recovery -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AR</div>
+                        <div class="review-meta">
+                            <h4>@AssetRescuer</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Recovered my scammed $15K from a fake investment site. Professional process, got $11.85K back after fee. Highly recommend for asset recovery."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">PI</div>
+                        <div class="review-meta">
+                            <h4>@PrivateEye</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Hired for infidelity surveillance. Discreet, detailed report with evidence. Worth the $2,500 package. Professional throughout."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">FR</div>
+                        <div class="review-meta">
+                            <h4>@FundRetriever</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Lost jewelry worth $12K in a scam. Their asset recovery team tracked and recovered it. 21% fee was fair for the results."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">BG</div>
+                        <div class="review-meta">
+                            <h4>@BackgroundGuru</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Comprehensive background check on a business partner. Uncovered hidden debts. $1,200 well spent on PI services."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MP</div>
+                        <div class="review-meta">
+                            <h4>@MissingPerson</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Located a missing relative using their PI locate service. Efficient and empathetic. $3,000 package delivered results in days."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AS</div>
+                        <div class="review-meta">
+                            <h4>@AssetSeeker</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Asset search revealed hidden offshore accounts in a divorce case. Professional report, $2,500. Invaluable."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SM</div>
+                        <div class="review-meta">
+                            <h4>@SocialMonitor</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Social media investigation uncovered key evidence for custody battle. Thorough and discreet PI work for $2,800."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CE</div>
+                        <div class="review-meta">
+                            <h4>@CorpEsp</h4>
+                            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Detected corporate espionage leak. Their PI team identified the source quickly. $4,000 investment saved our company."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">CC</div>
+                        <div class="review-meta">
+                            <h4>@CustodyCare</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Child custody investigation provided crucial evidence on ex's lifestyle. Professional handling, $3,500."
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WR</div>
+                        <div class="review-meta">
+                            <h4>@WalletRecover</h4>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Recovered $50K in lost BTC wallet through asset recovery. Efficient process, paid fair 21% fee."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About THE GHOST</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-muted);">
+                THE GHOST is a leading provider of cutting-edge cybersecurity and digital forensic services. Our team of experts specializes in elite access solutions, asset recovery, and private investigations. We prioritize client confidentiality, using state-of-the-art tools to deliver results without traces. Whether you're dealing with lost funds, network vulnerabilities, or personal investigations, we handle diverse issues with professionalism and precision. Our services address complex digital challenges, from ransomware decryption to corporate espionage detection, ensuring comprehensive support for all your security needs.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title">Why Choose THE GHOST</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Untraceable Operations</h3>
+                    <p>We accept BTC-only payments with no KYC requirements, ensuring complete anonymity. Our systems maintain no records or logs, providing you with peace of mind and security in every transaction. Ideal for sensitive operations where privacy is paramount.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning-Fast Delivery</h3>
+                    <p>Most services are completed within 72 hours, thanks to our efficient processes and expert team. We prioritize speed without compromising on quality or accuracy, handling urgent recoveries and investigations promptly.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Guaranteed Results</h3>
+                    <p>If we cannot deliver the promised results, you receive a full refund. Our success rate is backed by years of experience in complex cybersecurity challenges, from asset tracking to exploit development.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Professional Support</h3>
+                    <p>Our support team responds to emails within 2 hours, offering expert guidance and updates throughout your engagement with us. We address all queries, from service details to progress reports, ensuring smooth communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Customer Care Center</h2>
+            <div class="contact-warning">
+                <p>We are a team of professionals, therefore we prefer clients who value our time, skills and professionalism. We do not offer any free or sub-standard services. All our services have a price tag. Before emailing, kindly be sure you know all the prices and avoid time wasting.</p>
+            </div>
+            <div class="care-center">
+                <div class="contact-method">
+                    <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="method-title">Email</div>
+                    <div class="method-value"><a href="mailto:theghostcyber@tuta.io?subject=Service%20Inquiry">theghostcyber@tuta.io</a></div>
+                    <span class="method-status active">24/7 Active</span>
+                </div>
+                <div class="contact-method">
+                    <div class="method-icon"><i class="fas fa-headset"></i></div>
+                    <div class="method-title">Support</div>
+                    <div class="method-value">Priority Response</div>
+                    <span class="method-status active">2 Hour SLA</span>
+                </div>
+                <div class="contact-method">
+                    <div class="method-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="method-title">Secure</div>
+                    <div class="method-value">Encrypted</div>
+                    <span class="method-status active">Always Protected</span>
+                </div>
+            </div>
+            <div class="support-note">
+                <h4><i class="fas fa-lightbulb"></i> How We Help</h4>
+            </div>
+            <div class="how-we-help">
+                <div class="help-card">
+                    <div class="help-card-icon"><i class="fas fa-piggy-bank"></i></div>
+                    <h5>Asset Recovery</h5>
+                    <p class="help-card-description">Professional recovery of lost or scammed funds and valuables.</p>
+                    <div class="help-card-details">
+                        <strong>What to provide:</strong> Detailed scam information, amount involved, transaction details, and all relevant communications.
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon"><i class="fas fa-user-secret"></i></div>
+                    <h5>PI Services</h5>
+                    <p class="help-card-description">Comprehensive private investigation and surveillance solutions.</p>
+                    <div class="help-card-details">
+                        <strong>What to provide:</strong> Describe case scope, investigation needs, target details, and desired outcomes.
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon"><i class="fas fa-cogs"></i></div>
+                    <h5>General Services</h5>
+                    <p class="help-card-description">Specialized cybersecurity and digital forensic services.</p>
+                    <div class="help-card-details">
+                        <strong>What to provide:</strong> Service type needed, target information, specific objectives, and any relevant context.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#order">Order</a>
+                <a href="#btc-guide">BTC Guide</a>
+                <a href="#asset-recovery">Asset Recovery</a>
+                <a href="#pi-hire">Private Investigator Hire</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#about">About</a>
+                <a href="#why">Why Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2026 THE GHOST. All access granted. No traces left.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Order steps
+        let currentStep = 1;
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+
+            // Update progress bar
+            document.querySelectorAll('.progress-step').forEach((ps, index) => {
+                if (index + 1 < step) {
+                    ps.classList.add('completed');
+                    ps.classList.remove('active');
+                } else if (index + 1 === step) {
+                    ps.classList.add('active');
+                    ps.classList.remove('completed');
+                } else {
+                    ps.classList.remove('completed', 'active');
+                }
+            });
+
+            currentStep = step;
+        }
+
+        function nextStep(step) {
+            if (step === 2) {
+                const select = document.getElementById('serviceSelect');
+                const selected = select.options[select.selectedIndex];
+                if (!selected.value) return alert('Please select a service');
+
+                const fullText = selected.text;
+                const name = fullText.split(' - ')[0];
+                const price = fullText.split(' - ')[1];
+
+                document.getElementById('selectedService').innerHTML = `<strong>${name}</strong><br>Price: <span style="color:var(--primary);">${price}</span>`;
+            }
+
+            if (step === 3) {
+                const fullText = document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text;
+                const price = fullText.split(' - ')[1];
+                document.getElementById('amountDue').textContent = price;
+            }
+
+            showStep(step);
+        }
+
+        function prevStep(step) {
+            showStep(step);
+        }
+
+        function validateTXID() {
+            const txid = document.getElementById('txid').value.trim();
+            const hexRegex = /^[a-fA-F0-9]{64}$/;
+            const error = document.getElementById('txidError');
+
+            if (!hexRegex.test(txid)) {
+                error.style.display = 'block';
+                return;
+            }
+            error.style.display = 'none';
+
+            // Generate unique Order ID
+            const orderId = 'ORDER-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('orderId').innerHTML = `<strong>Your Unique Order ID:</strong> ${orderId}<br>Use this for email follow-up.`;
+            document.getElementById('orderId').style.display = 'block';
+
+            showStep(4);
+            document.getElementById('paymentStatus').innerHTML = `
+                <p style="color:var(--primary);">TXID Valid: <code>${txid}</code></p>
+                <p>Status: <strong>Pending Confirmation (1/3)</strong></p>
+                <p><em>Typically confirms in 10-30 minutes.</em></p>
+            `;
+        }
+
+        // Optional: update price preview when the dropdown changes
+        document.getElementById('serviceSelect').addEventListener('change', function () {
+            const fullText = this.options[this.selectedIndex].text;
+            const price = fullText.split(' - ')[1];
+            if (price) {
+                // You can add live preview here if needed
+            }
+        });
+
+        // Initialize progress bar
+        document.addEventListener('DOMContentLoaded', function() {
+            showStep(1);
+        });
+
+        const interactiveCards = document.querySelectorAll('.interactive-card');
+        interactiveCards.forEach(card => {
+            card.addEventListener('mousemove', function (event) {
+                const rect = this.getBoundingClientRect();
+                const x = event.clientX - rect.left - rect.width / 2;
+                const y = event.clientY - rect.top - rect.height / 2;
+                const rotateY = x / 25;
+                const rotateX = -y / 25;
+                this.style.transform = `perspective(900px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.03)`;
+            });
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = '';
+            });
+        });
+
+        const hatToggle = document.getElementById('hatToggle');
+        const operationsSection = document.getElementById('operations');
+
+        if (hatToggle && operationsSection) {
+            hatToggle.addEventListener('click', function () {
+                const mode = this.dataset.mode;
+                if (mode === 'whitehat') {
+                    operationsSection.classList.add('whitehat-mode');
+                    operationsSection.classList.remove('blackhat-mode');
+                    this.dataset.mode = 'blackhat';
+                    this.textContent = 'Switch to Blackhat';
+                } else {
+                    operationsSection.classList.add('blackhat-mode');
+                    operationsSection.classList.remove('whitehat-mode');
+                    this.dataset.mode = 'whitehat';
+                    this.textContent = 'Switch to Whitehat';
+                }
+            });
+        }
+
+        // Typing Effect for Hero Title
+        const typingText = document.getElementById('typingText');
+        const cursor = document.querySelector('.typing-cursor');
+        const fullText = 'Invisible. Untraceable. Digital Mastery.';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < fullText.length) {
+                typingText.innerHTML = fullText.substring(0, index + 1) + '<span class="typing-cursor"></span>';
+                index++;
+                setTimeout(typeWriter, 100);
+            } else {
+                cursor.style.animation = 'none';
+            }
+        }
+
+        setTimeout(typeWriter, 1000);
+
+        // Matrix Rain Effect
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const matrixRain = document.getElementById('matrixRain');
+        matrixRain.appendChild(canvas);
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '01';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(10, 17, 40, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#64ffda';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
