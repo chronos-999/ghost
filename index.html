@@ -15,20 +15,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    <!-- Start of Tawk.to Script -->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69efd15c012bcb1c301c3d6e/1jn8cjla2';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!-- End of Tawk.to Script -->
-
     <style>
         :root {
             --bg: #0a1128;
@@ -106,7 +92,7 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             line-height: 1.1;
         }
 
@@ -242,12 +228,12 @@
 
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 120px;
-            padding-bottom: 60px;
+            padding-top: 80px;
+            padding-bottom: 40px;
             position: relative;
             overflow: hidden;
         }
@@ -273,10 +259,25 @@
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             color: var(--text);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .hero-discount-banner {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(100, 255, 218, 0.12);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            max-width: fit-content;
+            box-shadow: 0 0 25px rgba(100, 255, 218, 0.08);
         }
 
         .cta-btn {
@@ -1201,6 +1202,36 @@
             font-size: 0.95rem;
         }
 
+        .guide-card.highlight-card {
+            border-color: rgba(255, 194, 0, 0.35);
+            background: linear-gradient(135deg, rgba(255, 194, 0, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%);
+            box-shadow: 0 15px 40px rgba(255, 194, 0, 0.14);
+        }
+
+        .guide-card.highlight-card .guide-icon {
+            color: #ffd166;
+            background: rgba(255, 194, 0, 0.12);
+        }
+
+        .guide-card.highlight-card h3 {
+            color: #ffd166;
+        }
+
+        .guide-tip {
+            margin-top: 1.5rem;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            background: rgba(100, 255, 218, 0.08);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            color: var(--text);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .guide-tip strong {
+            color: var(--primary);
+        }
+
         .guide-card ul {
             list-style: none;
             margin: 1rem 0;
@@ -1603,6 +1634,211 @@
             transform: scale(1.05) !important;
             box-shadow: var(--glow-accent) !important;
         }
+
+        /* Landing Info Cards Section */
+        .landing-info-section {
+            padding: 80px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.02) 0%, rgba(100, 255, 218, 0.01) 100%);
+        }
+
+        .landing-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .landing-info-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            border: 1.5px solid rgba(100, 255, 218, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        .landing-info-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .landing-info-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(100, 255, 218, 0.05) 0%, transparent 50%, rgba(100, 255, 218, 0.03) 100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .landing-info-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 30px 90px rgba(100, 255, 218, 0.18), var(--glow);
+        }
+
+        .landing-info-card:hover::before,
+        .landing-info-card:hover::after {
+            opacity: 1;
+        }
+
+        .landing-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .landing-info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .landing-info-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-highlight {
+            background: rgba(100, 255, 218, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .card-cta {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(100, 255, 218, 0.15);
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-cta:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: var(--glow-accent);
+            transform: translateY(-2px);
+        }
+
+        .card-feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .card-feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .card-feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .card-read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 8px 16px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--primary);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card-read-more:hover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: var(--primary);
+        }
+
+        .card-feature-list.collapsed {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-feature-list.expanded {
+            max-height: 500px;
+            overflow: visible;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-extra-content {
+            display: none;
+        }
+
+        .card-extra-content.show {
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .landing-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .landing-info-card {
+                padding: 2rem;
+            }
+
+            .landing-card-icon {
+                font-size: 2.5rem;
+            }
+
+            .landing-info-card h3 {
+                font-size: 1.2rem;
+            }
+        }
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -1744,7 +1980,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="neon-text" id="typingText">Invisible. Untraceable. Digital Mastery.<span class="typing-cursor"></span></h1>
-                <p>Welcome to THE GHOST, your trusted partner in advanced cybersecurity and digital forensics. We offer elite services for access, recovery, and investigations, ensuring discretion and efficiency. Starting at <strong style="color:var(--primary);">$350</strong>. Crypto recovery: <strong>21% fee</strong> on funds above $10K. BTC payments only.</p>
+                <p>Welcome to THE GHOST, your trusted partner in advanced cybersecurity and digital forensics. We offer elite services for access, recovery, and investigations, ensuring discretion and efficiency. All listed prices already include a <strong style="color:var(--primary);">5% discount</strong>. Starting at <strong style="color:var(--primary);">$350</strong>. Crypto recovery: <strong>21% fee</strong> on funds above $10K. BTC payments only.</p>
+                <div class="hero-discount-banner">5% discount already applied to all fixed-price services</div>
                 <a href="#services" class="cta-btn">Explore Our Services</a>
             </div>
         </div>
@@ -1765,6 +2002,58 @@
         <div class="floating-code">function hack() {}</div>
         <div class="floating-code">SELECT * FROM data;</div>
         <div class="floating-code">encrypt(key);</div>
+    </section>
+
+    <!-- Landing Info Cards -->
+    <section id="landing-info" class="landing-info-section">
+        <div class="container">
+            <h2 class="section-title">Before You Proceed</h2>
+            <div class="landing-cards-grid">
+                <!-- Card 1: Services & Pricing -->
+                <div class="landing-info-card">
+                    <div class="landing-card-icon"><i class="fas fa-list-check"></i></div>
+                    <h3>Complete Service Catalog</h3>
+                    <p>Browse our comprehensive range of elite cybersecurity and recovery services. Every service comes with transparent pricing and detailed specifications.</p>
+                    <div class="card-highlight">All services are fully priced - review our service page for complete details</div>
+                    <a href="#services" class="card-cta">View All Services & Prices</a>
+                </div>
+
+                <!-- Card 2: Professional Expertise -->
+                <div class="landing-info-card">
+                    <div class="landing-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Professional Expertise</h3>
+                    <p>We are a elite team of both Blackhat & Whitehat professionals with Red Team operations expertise.</p>
+                    <ul class="card-feature-list collapsed" id="expertiseList">
+                        <li>Blackhat: Stealth operations & advanced exploits</li>
+                        <li>Whitehat: Security audits & defensive strategies</li>
+                        <li>Red Team: Simulated attack scenarios</li>
+                        <li>Zero-Detection Operations</li>
+                    </ul>
+                    <button class="card-read-more" onclick="toggleList('expertiseList', this)">Read More +</button>
+                </div>
+
+                <!-- Card 3: Premium Services Only -->
+                <div class="landing-info-card">
+                    <div class="landing-card-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>No Free Services</h3>
+                    <p>We operate on a professional basis. Every service is priced according to complexity, risk level, and expertise required.</p>
+                    <div class="card-highlight">Starting from $350 | Crypto Recovery: 21% fee on funds above $10K | <strong>5% discount already applied</strong></div>
+                    <div class="card-extra-content" id="pricingExtra">
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Pricing reflects the elite nature of our services and guarantees professional quality and full discretion.</p>
+                    </div>
+                    <button class="card-read-more" onclick="toggleContent('pricingExtra', this)">Read More +</button>
+                </div>
+
+                <!-- Card 4: Get Swift Response -->
+                <div class="landing-info-card">
+                    <div class="landing-card-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Swift Response Support</h3>
+                    <p>Ready to proceed? Contact us directly for immediate assistance. Kindly email us with your requirements after reviewing our services and pricing.</p>
+                    <div class="card-highlight">For fastest response, verify your needs against our services before reaching out</div>
+                    <a href="#contact" class="card-cta">Go to Contact Page</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Cyber Operations -->
@@ -1818,92 +2107,92 @@
                     <i class="fas fa-shopping-cart service-icon"></i>
                     <h3>Walmart Account Hacking (with CC)</h3>
                     <p>Secure access to Walmart profiles linked with payment information for comprehensive control and data extraction.</p>
-                    <div class="price">$400</div>
+                    <div class="price">$380</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-hashtag service-icon"></i>
                     <h3>Hacking Social Media & WhatsApp Full Access(Only for threatening and Infidelity cases)</h3>
                     <p>Full control over platforms like Instagram, Facebook, TikTok, Snapchat, Twitter/X, WhatsApp including recovery from lost access. Access to full chat history, media files, and deleted messages.</p>
-                    <div class="price">$555</div>
+                    <div class="price">$527</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-envelope service-icon"></i>
                     <h3>Email Account Hacking Access & Recovery</h3>
                     <p>Inbox takeover for Gmail, Outlook, Yahoo, ProtonMail, with options for data archiving and secure recovery.</p>
-                    <div class="price">$550</div>
+                    <div class="price">$523</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-mobile-alt service-icon"></i>
                     <h3>Phone Tracking</h3>
                     <p>Real-time GPS location, call logs, SMS monitoring, and app activity tracking for comprehensive device surveillance.</p>
-                    <div class="price">$750</div>
+                    <div class="price">$713</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-desktop service-icon"></i>
                     <h3>RDP Server Access</h3>
                     <p>Remote desktop protocol access to compromised servers for data retrieval and control.</p>
-                    <div class="price">$1,100</div>
+                    <div class="price">$1,045</div>
                 </div>
           
                 <div class="service-card">
                     <i class="fas fa-key service-icon"></i>
                     <h3>Password Cracking</h3>
                     <p>Advanced cracking using Hashcat, JohnTheRipper, and custom wordlists for secure password retrieval.</p>
-                    <div class="price">$650</div>
+                    <div class="price">$618</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-shield-alt service-icon"></i>
                     <h3>Password Recovery</h3>
                     <p>Recovery for Windows, macOS, Linux, BIOS, and encrypted drives using specialized tools.</p>
-                    <div class="price">$1,100</div>
+                    <div class="price">$1,045</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-home service-icon"></i>
                     <h3>Smart Home Control</h3>
                     <p>Control over Nest, Ring, Alexa devices including lights, locks, and cameras for integrated smart home management.</p>
-                    <div class="price">$1,300</div>
+                    <div class="price">$1,235</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-car service-icon"></i>
                     <h3>GPS Vehicle Tracking</h3>
                     <p>Live location tracking for OBD-II, Tesla, and fleet vehicles with detailed reporting.</p>
-                    <div class="price">$1,850</div>
+                    <div class="price">$1,758</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-globe service-icon"></i>
                     <h3>Website Vulnerability Assessment</h3>
                     <p>Full pentest report covering SQLi, XSS, RCE vulnerabilities for website security.</p>
-                    <div class="price">$1,500</div>
+                    <div class="price">$1,425</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-credit-card service-icon"></i>
                     <h3>PayPal Account Logs & Cookies Hacking</h3>
                     <p>Access to PayPal wallets with balances above $5,500 using logs and cookies.</p>
-                    <div class="price">$1,150</div>
+                    <div class="price">$1,093</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-camera service-icon"></i>
                     <h3>IP Camera Access</h3>
                     <p>Live feed and recordings from any IoT camera for surveillance purposes.</p>
-                    <div class="price">$1,500</div>
+                    <div class="price">$1,425</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-exchange-alt service-icon"></i>
                     <h3>Crypto Exchange Account Recovery</h3>
                     <p>Recovery for Binance, Coinbase, Kraken with 2FA bypass and API key access.</p>
-                    <div class="price">$1,800</div>
+                    <div class="price">$1,710</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-wifi service-icon"></i>
                     <h3>WiFi Network Assessment</h3>
                     <p>WPA2/3 cracking, rogue AP detection, and MITM analysis for network security.</p>
-                    <div class="price">$800</div>
+                    <div class="price">$760</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-university service-icon"></i>
                     <h3>Bank Account Access</h3>
                     <p>Credentials, history, and transfers for balances above $4,900.</p>
-                    <div class="price">$1,200</div>
+                    <div class="price">$1,140</div>
                 </div>
             </div>
 
@@ -1914,37 +2203,37 @@
                     <i class="fas fa-credit-card service-icon"></i>
                     <h3>Stolen Credit Card Details (with CVV)</h3>
                     <p>Full card information including PIN for immediate and secure use.</p>
-                    <div class="price">$195</div>
+                    <div class="price">$186</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-id-card service-icon"></i>
                     <h3>SSN (Social Security Number)</h3>
                     <p>Single US SSN for setting up fraudulent accounts or identities.</p>
-                    <div class="price">$460</div>
+                    <div class="price">$437</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-folder-open service-icon"></i>
                     <h3>Fullz (Complete Identity Kit)</h3>
                     <p> Bundled data including name, SSN, DOB for complete identity theft.</p>
-                    <div class="price">$750</div>
+                    <div class="price">$713</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-piggy-bank service-icon"></i>
                     <h3>Stolen Bank Login Credentials</h3>
                     <p>Verified credentials with balances over $1,200 for access.</p>
-                    <div class="price">$450</div>
+                    <div class="price">$428</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-id-badge service-icon"></i>
                     <h3>US Driver's License Scan</h3>
                     <p>High-quality forged or stolen digital scans for verification purposes.</p>
-                    <div class="price">$650</div>
+                    <div class="price">$618</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-passport service-icon"></i>
                     <h3>US Passport Scan</h3>
                     <p>Premium fake or stolen passport physical identity verification.</p>
-                    <div class="price">$2,100</div>
+                    <div class="price">$1,995</div>
                 </div>
             </div>
 
@@ -1955,13 +2244,13 @@
                     <i class="fas fa-search-location service-icon"></i>
                     <h3>IP Address Tracking and Location Service</h3>
                     <p>Precise tracing of IP to physical locations for targeted operations or doxxing.</p>
-                    <div class="price">$750</div>
+                    <div class="price">$713</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-undo service-icon"></i>
                     <h3>Account Recovery Service</h3>
                     <p>Social engineering-based recovery for social media and email accounts.</p>
-                    <div class="price">$650</div>
+                    <div class="price">$618</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-handshake service-icon"></i>
@@ -1973,7 +2262,7 @@
                     <i class="fas fa-lock-open service-icon"></i>
                     <h3>Ransomware Decryption</h3>
                     <p>Private key recovery for REvil, Conti, LockBit ransomware variants.</p>
-                    <div class="price">$2,900</div>
+                    <div class="price">$2,755</div>
                 </div>
             </div>
 
@@ -1984,19 +2273,19 @@
                     <i class="fas fa-bug service-icon"></i>
                     <h3>Infostealer Malware Subscription</h3>
                     <p>Monthly access to tools for harvesting credentials from targeted systems.</p>
-                    <div class="price">$1,124</div>
+                    <div class="price">$1,068</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-skull-crossbones service-icon"></i>
                     <h3>Ransomware-as-a-Service</h3>
                     <p>Ready-to-deploy ransomware with command and control panel for 1 month.</p>
-                    <div class="price">$1,200</div>
+                    <div class="price">$1,140</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-code service-icon"></i>
                     <h3>Custom Malware Development</h3>
                     <p>Tailored viruses or trojans designed for specific targets and objectives.</p>
-                    <div class="price">$3,188</div>
+                    <div class="price">$3,029</div>
                 </div>
             </div>
 
@@ -2008,25 +2297,25 @@
                     <i class="fas fa-clock service-icon"></i>
                     <h3>DDoS Attack (24 Hours)</h3>
                     <p>Extended denial of service for unprotected targets to cause downtime.</p>
-                    <div class="price">$650</div>
+                    <div class="price">$618</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-shield-alt service-icon"></i>
                     <h3>DDoS Attack (Per Hour, Protected)</h3>
                     <p>Bypassing protections for targeted disruption per hour.</p>
-                    <div class="price">$2,600</div>
+                    <div class="price">$2,470</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-laptop-code service-icon"></i>
                     <h3>Computer/Phone Hacking</h3>
                     <p>Remote access through exploits for devices.</p>
-                    <div class="price">$2,430</div>
+                    <div class="price">$2,309</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-globe service-icon"></i>
                     <h3>Website Hacking (Full Compromise)</h3>
                     <p>Code injection or data theft for complete website compromise.</p>
-                    <div class="price">$3,940</div>
+                    <div class="price">$3,743</div>
                 </div>
             </div>
 
@@ -2037,61 +2326,61 @@
                     <i class="fas fa-user-graduate service-icon"></i>
                     <h3>Changing School/University Grades</h3>
                     <p>Database hacks to alter academic records securely.</p>
-                    <div class="price">$1,260</div>
+                    <div class="price">$1,197</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-chart-line service-icon"></i>
                     <h3>Debt/Credit Report Manipulation</h3>
                     <p>Falsification of financial records for credit improvement.</p>
-                    <div class="price">$1,270</div>
+                    <div class="price">$1,207</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-user-secret service-icon"></i>
                     <h3>Personal Doxxing Attack</h3>
                     <p>Exposure of private information for targeted harassment.</p>
-                    <div class="price">$3,510</div>
+                    <div class="price">$3,335</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-building service-icon"></i>
                     <h3>Small Business Full Access</h3>
                     <p>Complete compromise of small business networks.</p>
-                    <div class="price">$2,500</div>
+                    <div class="price">$2,375</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-cog service-icon"></i>
                     <h3>Corporate Email Takeover</h3>
                     <p>Admin rights takeover for Office 365, GSuite.</p>
-                    <div class="price">$3,200</div>
+                    <div class="price">$3,040</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-users-cog service-icon"></i>
                     <h3>Corporate Domain Admin Access</h3>
                     <p>High-privilege access to company systems.</p>
-                    <div class="price">$4,000</div>
+                    <div class="price">$3,800</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-video service-icon"></i>
                     <h3>Deepfake Video Creation</h3>
                     <p>Custom 4K videos with face-swap and voice cloning.</p>
-                    <div class="price">$3,200</div>
+                    <div class="price">$3,040</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-file-medical service-icon"></i>
                     <h3>Complete Medical Record</h3>
                     <p>Full health data access for sensitive operations.</p>
-                    <div class="price">$1,200 to $3,500</div>
+                    <div class="price">$2,850</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-passport service-icon"></i>
                     <h3>EU Passport & Visa (Physical Forgery)</h3>
                     <p>High-end physical fake documents for border use.</p>
-                    <div class="price">$2,200 to $4,800</div>
+                    <div class="price">$2,090 - $4,560</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-bug service-icon"></i>
                     <h3>Zero-Day Exploit (Premium)</h3>
                     <p>Undiscovered software vulnerabilities for advanced attacks.</p>
-                    <div class="price">$35,000</div>
+                    <div class="price">$33,250</div>
                 </div>
             </div>
 
@@ -2104,7 +2393,7 @@
                     <i class="fas fa-book-open service-icon"></i>
                     <h3>Full OSINT Mastery Course</h3>
                     <p>7-day video course covering Maltego, Recon-ng, Shodan, IntelX, Google Dorks with scripts and templates included for practical application.</p>
-                    <div class="price">$1,500</div>
+                    <div class="price">$1,425</div>
                 </div>
 
                 <!-- Tool 2 -->
@@ -2112,7 +2401,7 @@
                     <i class="fas fa-terminal service-icon"></i>
                     <h3>Custom Phishing Kit (2026)</h3>
                     <p>Evasion-ready kit with Evilginx2, Gophish, custom templates, anti-bot bypass, full source code, and setup guide.</p>
-                    <div class="price">$2,500</div>
+                    <div class="price">$2,375</div>
                 </div>
 
                 <!-- Tool 3 -->
@@ -2120,7 +2409,7 @@
                     <i class="fas fa-fingerprint service-icon"></i>
                     <h3>Fingerprint Spoofing Suite</h3>
                     <p>Browser fingerprint changer for Canvas, WebGL, Fonts, Audio, undetectable by Cloudflare and Akamai.</p>
-                    <div class="price">$1950</div>
+                    <div class="price">$1,853</div>
                 </div>
 
                 <!-- Tool 4 -->
@@ -2128,7 +2417,7 @@
                     <i class="fas fa-bug service-icon"></i>
                     <h3>Exploit Development Bootcamp</h3>
                     <p>Training on buffer overflow, ROP, kernel exploits for Windows/Linux, with 5 live sessions, labs, and private exploit DB access.</p>
-                    <div class="price">$3,800</div>
+                    <div class="price">$3,610</div>
                 </div>
 
                 <!-- Tool 5 -->
@@ -2136,7 +2425,7 @@
                     <i class="fas fa-keyboard service-icon"></i>
                     <h3>Keylogger + Remote Installer</h3>
                     <p>Stealth keylogger for Windows/macOS that bypasses AV, with C2 panel and auto-exfiltration features.</p>
-                    <div class="price">$1,800</div>
+                    <div class="price">$1,710</div>
                 </div>
 
                 <!-- Tool 6 -->
@@ -2144,7 +2433,7 @@
                     <i class="fas fa-shield-virus service-icon"></i>
                     <h3>AV Evasion Framework</h3>
                     <p>Packers, crypters, obfuscators compatible with Defender, Kaspersky, Bitdefender, updated weekly.</p>
-                    <div class="price">$2,200</div>
+                    <div class="price">$2,090</div>
                 </div>
 
                 <!-- Tool 7 -->
@@ -2152,7 +2441,7 @@
                     <i class="fas fa-satellite-dish service-icon"></i>
                     <h3>SMS & Call Spoofing Tool</h3>
                     <p>Unlimited spoofing in 180+ countries with web panel and API integration.</p>
-                    <div class="price">$1,500</div>
+                    <div class="price">$1,425</div>
                 </div>
 
                 <!-- Tool 8 -->
@@ -2160,7 +2449,7 @@
                     <i class="fas fa-code-branch service-icon"></i>
                     <h3>Cobalt Strike License (Cracked)</h3>
                     <p>Full C2 framework with Beacon, Malleable C2, Aggressor scripts for 6-month access.</p>
-                    <div class="price">$6,500</div>
+                    <div class="price">$6,175</div>
                 </div>
 
                 <!-- Tool 9 -->
@@ -2168,7 +2457,7 @@
                     <i class="fas fa-wrench service-icon"></i>
                     <h3>Metasploit Pro (Lifetime)</h3>
                     <p>Lifetime access with GUI, reporting, web exploits, and post-exploitation modules.</p>
-                    <div class="price">$4,200</div>
+                    <div class="price">$3,990</div>
                 </div>
 
                 <!-- Tool 10 -->
@@ -2176,26 +2465,26 @@
                     <i class="fas fa-laptop-code service-icon"></i>
                     <h3>Private RDP + VPS Setup Guide</h3>
                     <p>Step-by-step guide for anonymity, OPSEC, clean IP, root access, with config files included.</p>
-                    <div class="price">$1,750</div>
+                    <div class="price">$1,663</div>
                 </div>
                 <!-- PASTE BELOW THIS LINE -->
                 <div class="service-card">
                     <i class="fas fa-graduation-cap service-icon"></i>
                     <h3>Full Introduction To Hacking Mastery Course</h3>
                     <p>Beginner to intermediate course covering Kali Linux, Nmap, Metasploit, Burp Suite, SQLi, XSS with 40+ hours of video and labs.</p>
-                    <div class="price">$950</div>
+                    <div class="price">$903</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-laptop-code service-icon"></i>
                     <h3>Full Middle-Level Hacking Mastery Course</h3>
                     <p>Advanced training on buffer overflow, reverse engineering, exploit development, post-exploitation, privilege escalation with real-world CTFs.</p>
-                    <div class="price">$2,300</div>
+                    <div class="price">$2,185</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-user-ninja service-icon"></i>
                     <h3>Full Pro-Level Hacking Mastery Course</h3>
                     <p>Elite level course on zero-days, kernel exploits, red team operations, C2 frameworks, stealth persistence with private mentorship.</p>
-                    <div class="price">$3,500</div>
+                    <div class="price">$3,325</div>
                 </div>
             </div>
 
@@ -2373,61 +2662,61 @@
                         <select id="serviceSelect" required>
                             <option value="">Choose a service...</option>
                             <!-- Original services -->
-                            <option value="Walmart Account Hacking (with CC)|$400">Walmart Account Hacking (with CC) - $400</option>
-                            <option value="Social Media & WhatsApp Access|$555">Social Media & WhatsApp Access - $555</option>
-                            <option value="Email Account Access & Recovery|$550">Email Account Access & Recovery - $550</option>
-                            <option value="Phone Tracking|$750">Phone Tracking - $750</option>
-                            <option value="RDP Server Access|$1,100">RDP Server Access - $1,100</option>
-                            <option value="Password Cracking|$350">Password Cracking - $650</option>
-                            <option value="Password Recovery|$1,100">Password Recovery - $1,100</option>
-                            <option value="Smart Home Control|$1,300">Smart Home Control - $1,300</option>
-                            <option value="GPS Vehicle Tracking|$1,050">GPS Vehicle Tracking - $1,050</option>
-                            <option value="Website Vulnerability Assessment|$1,200">Website Vulnerability Assessment - $1,200</option>
-                            <option value="PayPal Account Logs & Cookies Hacking|$550">PayPal Account Logs & Cookies Hacking - $550</option>
-                            <option value="IP Camera Access|$1,200">IP Camera Access - $1,200</option>
-                            <option value="Crypto Exchange Account Recovery|$1,800">Crypto Exchange Account Recovery - $1,800</option>
-                            <option value="WiFi Network Assessment|$1,100">WiFi Network Assessment - $1,100</option>
-                            <option value="Bank Account Access|$1,200">Bank Account Access - $1,200</option>
-                            <option value="Stolen Credit Card Details (with CVV)|$195">Stolen Credit Card Details (with CVV) - $195</option>
-                            <option value="SSN (Social Security Number)|$360">SSN (Social Security Number) - $360</option>
-                            <option value="Fullz (Complete Identity Kit)|$500">Fullz (Complete Identity Kit) - $500</option>
-                            <option value="Stolen Bank Login Credentials|$450">Stolen Bank Login Credentials - $450</option>
-                            <option value="US Driver's License Scan|$650">US Driver's License Scan - $650</option>
-                            <option value="US Passport Scan|$1,000">US Passport Scan - $1,000</option>
-                            <option value="IP Address Tracking and Location Service|$950">IP Address Tracking and Location Service - $950</option>
-                            <option value="Account Recovery Service|$1,200">Account Recovery Service - $1,200</option>
+                            <option value="Walmart Account Hacking (with CC)|$380">Walmart Account Hacking (with CC) - $380</option>
+                            <option value="Social Media & WhatsApp Access|$527">Social Media & WhatsApp Access - $527</option>
+                            <option value="Email Account Access & Recovery|$523">Email Account Access & Recovery - $523</option>
+                            <option value="Phone Tracking|$713">Phone Tracking - $713</option>
+                            <option value="RDP Server Access|$1,045">RDP Server Access - $1,045</option>
+                            <option value="Password Cracking|$618">Password Cracking - $618</option>
+                            <option value="Password Recovery|$1,045">Password Recovery - $1,045</option>
+                            <option value="Smart Home Control|$1,235">Smart Home Control - $1,235</option>
+                            <option value="GPS Vehicle Tracking|$1,758">GPS Vehicle Tracking - $1,758</option>
+                            <option value="Website Vulnerability Assessment|$1,425">Website Vulnerability Assessment - $1,425</option>
+                            <option value="PayPal Account Logs & Cookies Hacking|$1,093">PayPal Account Logs & Cookies Hacking - $1,093</option>
+                            <option value="IP Camera Access|$1,425">IP Camera Access - $1,425</option>
+                            <option value="Crypto Exchange Account Recovery|$1,710">Crypto Exchange Account Recovery - $1,710</option>
+                            <option value="WiFi Network Assessment|$760">WiFi Network Assessment - $760</option>
+                            <option value="Bank Account Access|$1,140">Bank Account Access - $1,140</option>
+                            <option value="Stolen Credit Card Details (with CVV)|$186">Stolen Credit Card Details (with CVV) - $186</option>
+                            <option value="SSN (Social Security Number)|$437">SSN (Social Security Number) - $437</option>
+                            <option value="Fullz (Complete Identity Kit)|$713">Fullz (Complete Identity Kit) - $713</option>
+                            <option value="Stolen Bank Login Credentials|$428">Stolen Bank Login Credentials - $428</option>
+                            <option value="US Driver's License Scan|$618">US Driver's License Scan - $618</option>
+                            <option value="US Passport Scan|$1,995">US Passport Scan - $1,995</option>
+                            <option value="IP Address Tracking and Location Service|$713">IP Address Tracking and Location Service - $713</option>
+                            <option value="Account Recovery Service|$618">Account Recovery Service - $618</option>
                             <option value="Recovery of Scammed Funds & Valuable Items|21% of Recovered">Recovery of Scammed Funds & Valuable Items - 21% of Recovered</option>
-                            <option value="Ransomware Decryption|$2,900">Ransomware Decryption - $2,900</option>
-                            <option value="Infostealer Malware Subscription|$1,124">Infostealer Malware Subscription - $1,124</option>
-                            <option value="Ransomware-as-a-Service|$1,200">Ransomware-as-a-Service - $1,200</option>
-                            <option value="Custom Malware Development|$3,188">Custom Malware Development - $3,188</option>
-                            <option value="DDoS Attack (24 Hours)|$450">DDoS Attack (24 Hours) - $450</option>
-                            <option value="DDoS Attack (Per Hour, Protected)|$2,600">DDoS Attack (Per Hour, Protected) - $2,600</option>
-                            <option value="Computer/Phone Hacking|$2,430">Computer/Phone Hacking - $2,430</option>
-                            <option value="Website Hacking (Full Compromise)|$2,940">Website Hacking (Full Compromise) - $2,940</option>
-                            <option value="Changing School/University Grades|$2,260">Changing School/University Grades - $2,260</option>
-                            <option value="Debt/Credit Report Manipulation|$1,570">Debt/Credit Report Manipulation - $1,570</option>
-                            <option value="Personal Doxxing Attack|$3,510">Personal Doxxing Attack - $3,510</option>
-                            <option value="Small Business Full Access|$4,000">Small Business Full Access - $4,000</option>
-                            <option value="Corporate Email Takeover|$2,200">Corporate Email Takeover - $2,200</option>
-                            <option value="Corporate Domain Admin Access|$4,000">Corporate Domain Admin Access - $4,000</option>
-                            <option value="Deepfake Video Creation|$3,200">Deepfake Video Creation - $3,200</option>
-                            <option value="Complete Medical Record|$4,200">Complete Medical Record - $4,200</option>
-                            <option value="EU Passport (Physical Forgery)|$4,800">EU Passport (Physical Forgery) - $4,800</option>
-                            <option value="Zero-Day Exploit (Premium)|$80,000">Zero-Day Exploit (Premium) - $35,000</option>
-                            <option value="Full OSINT Mastery Course|$1,200">Full OSINT Mastery Course - $1,200</option>
-                            <option value="Custom Phishing Kit (2025)|$2,500">Custom Phishing Kit (2025) - $2,500</option>
-                            <option value="Fingerprint Spoofing Suite|$950">Fingerprint Spoofing Suite - $950</option>
-                            <option value="Exploit Development Bootcamp|$3,800">Exploit Development Bootcamp - $3,800</option>
-                            <option value="Keylogger + Remote Installer|$1,800">Keylogger + Remote Installer - $1,800</option>
-                            <option value="AV Evasion Framework|$2,200">AV Evasion Framework - $2,200</option>
-                            <option value="SMS & Call Spoofing Tool|$1,500">SMS & Call Spoofing Tool - $1,500</option>
-                            <option value="Cobalt Strike License (Cracked)|$6,500">Cobalt Strike License (Cracked) - $6,500</option>
-                            <option value="Metasploit Pro (Lifetime)|$4,200">Metasploit Pro (Lifetime) - $4,200</option>
-                            <option value="Private RDP + VPS Setup Guide|$750">Private RDP + VPS Setup Guide - $750</option>
-                            <option value="Full Introduction To Hacking Mastery Course|$650">Full Introduction To Hacking Mastery Course - $650</option>
-                            <option value="Full Middle-Level Hacking Mastery Course|$1,300">Full Middle-Level Hacking Mastery Course - $1,300</option>
-                            <option value="Full Pro-Level Hacking Mastery Course|$2,500">Full Pro-Level Hacking Mastery Course - $2,500</option>
+                            <option value="Ransomware Decryption|$2,755">Ransomware Decryption - $2,755</option>
+                            <option value="Infostealer Malware Subscription|$1,068">Infostealer Malware Subscription - $1,068</option>
+                            <option value="Ransomware-as-a-Service|$1,140">Ransomware-as-a-Service - $1,140</option>
+                            <option value="Custom Malware Development|$3,029">Custom Malware Development - $3,029</option>
+                            <option value="DDoS Attack (24 Hours)|$618">DDoS Attack (24 Hours) - $618</option>
+                            <option value="DDoS Attack (Per Hour, Protected)|$2,470">DDoS Attack (Per Hour, Protected) - $2,470</option>
+                            <option value="Computer/Phone Hacking|$2,309">Computer/Phone Hacking - $2,309</option>
+                            <option value="Website Hacking (Full Compromise)|$3,743">Website Hacking (Full Compromise) - $3,743</option>
+                            <option value="Changing School/University Grades|$1,197">Changing School/University Grades - $1,197</option>
+                            <option value="Debt/Credit Report Manipulation|$1,207">Debt/Credit Report Manipulation - $1,207</option>
+                            <option value="Personal Doxxing Attack|$3,335">Personal Doxxing Attack - $3,335</option>
+                            <option value="Small Business Full Access|$2,375">Small Business Full Access - $2,375</option>
+                            <option value="Corporate Email Takeover|$3,040">Corporate Email Takeover - $3,040</option>
+                            <option value="Corporate Domain Admin Access|$3,800">Corporate Domain Admin Access - $3,800</option>
+                            <option value="Deepfake Video Creation|$3,040">Deepfake Video Creation - $3,040</option>
+                            <option value="Complete Medical Record|$2,850">Complete Medical Record - $2,850</option>
+                            <option value="EU Passport (Physical Forgery)|$4,560">EU Passport (Physical Forgery) - $4,560</option>
+                            <option value="Zero-Day Exploit (Premium)|$33,250">Zero-Day Exploit (Premium) - $33,250</option>
+                            <option value="Full OSINT Mastery Course|$1,425">Full OSINT Mastery Course - $1,425</option>
+                            <option value="Custom Phishing Kit (2026)|$2,375">Custom Phishing Kit (2026) - $2,375</option>
+                            <option value="Fingerprint Spoofing Suite|$1,853">Fingerprint Spoofing Suite - $1,853</option>
+                            <option value="Exploit Development Bootcamp|$3,610">Exploit Development Bootcamp - $3,610</option>
+                            <option value="Keylogger + Remote Installer|$1,710">Keylogger + Remote Installer - $1,710</option>
+                            <option value="AV Evasion Framework|$2,090">AV Evasion Framework - $2,090</option>
+                            <option value="SMS & Call Spoofing Tool|$1,425">SMS & Call Spoofing Tool - $1,425</option>
+                            <option value="Cobalt Strike License (Cracked)|$6,175">Cobalt Strike License (Cracked) - $6,175</option>
+                            <option value="Metasploit Pro (Lifetime)|$3,990">Metasploit Pro (Lifetime) - $3,990</option>
+                            <option value="Private RDP + VPS Setup Guide|$1,663">Private RDP + VPS Setup Guide - $1,663</option>
+                            <option value="Full Introduction To Hacking Mastery Course|$903">Full Introduction To Hacking Mastery Course - $903</option>
+                            <option value="Full Middle-Level Hacking Mastery Course|$2,185">Full Middle-Level Hacking Mastery Course - $2,185</option>
+                            <option value="Full Pro-Level Hacking Mastery Course|$3,325">Full Pro-Level Hacking Mastery Course - $3,325</option>
                             <option value="BTC Wallet Recovery|21% of Total">BTC Wallet Recovery - 21% of Total</option>
                             <option value="ETH Wallet Recovery|21% of Total">ETH Wallet Recovery - 21% of Total</option>
                             <option value="SOL Wallet Recovery|21% of Total">SOL Wallet Recovery - 21% of Total</option>
@@ -2439,18 +2728,18 @@
                             <option value="Bank Account and Wire Transfer Recovery|21% of Recovered Amount (Min $10K)">Bank Account and Wire Transfer Recovery - 21% of Recovered Amount (Min $10K)</option>
                             <option value="Valuable Items Recovery (e.g., Cars, Jewelry)|21% of Recovered Value (Min $10K)">Valuable Items Recovery (e.g., Cars, Jewelry) - 21% of Recovered Value (Min $10K)</option>
                             <option value="Investment Scam Recovery|21% of Recovered Amount (Min $10K)">Investment Scam Recovery - 21% of Recovered Amount (Min $10K)</option>
-                            <option value="Ransomware Asset Recovery|$2,900 + 21% if Additional Funds Recovered">Ransomware Asset Recovery - $2,900 + 21% if Additional Funds Recovered</option>
+                            <option value="Ransomware Asset Recovery|$2,755 + 21% if Additional Funds Recovered">Ransomware Asset Recovery - $2,755 + 21% if Additional Funds Recovered</option>
                             <option value="General Scammed Funds Recovery|21% of Recovered Amount (Min $10K)">General Scammed Funds Recovery - 21% of Recovered Amount (Min $10K)</option>
 
                             <!-- Private Investigator Hire Services -->
-                            <option value="Background Checks|$1,800 (Flat Fee)">Background Checks - $1,800 (Flat Fee)</option>
-                            <option value="Surveillance|$200 per Hour (Minimum 8 Hours)">Surveillance - $200 per Hour (Minimum 8 Hours per Day)</option>
-                            <option value="Infidelity Investigations|$1,500 - $5,000 (Package)">Infidelity Investigations - $1,500 - $5,000 (Package)</option>
-                            <option value="Missing Persons Locate|$2,000 - $4,000 (Package)">Missing Persons Locate - $2,000 - $4,000 (Package)</option>
-                            <option value="Asset Searches|$1,500 - $3,000 (Flat Fee)">Asset Searches - $1,500 - $3,000 (Flat Fee)</option>
-                            <option value="Social Media Investigations|$1,500 - $3,500 (Package)">Social Media Investigations - $1,500 - $3,500 (Package)</option>
-                            <option value="Corporate Espionage Investigations|$3,000+ (Custom Quote)">Corporate Espionage Investigations - $3,000+ (Custom Quote)</option>
-                            <option value="Child Custody Investigations|$2,000 - $5,000 (Package)">Child Custody Investigations - $2,000 - $5,000 (Package)</option>
+                            <option value="Background Checks|$1,710 (Flat Fee)">Background Checks - $1,710 (Flat Fee)</option>
+                            <option value="Surveillance|$190 per Hour (Minimum 8 Hours per Day)">Surveillance - $190 per Hour (Minimum 8 Hours per Day)</option>
+                            <option value="Infidelity Investigations|$1,425 - $4,750 (Package)">Infidelity Investigations - $1,425 - $4,750 (Package)</option>
+                            <option value="Missing Persons Locate|$1,900 - $3,800 (Package)">Missing Persons Locate - $1,900 - $3,800 (Package)</option>
+                            <option value="Asset Searches|$1,425 - $2,850 (Flat Fee)">Asset Searches - $1,425 - $2,850 (Flat Fee)</option>
+                            <option value="Social Media Investigations|$1,425 - $3,325 (Package)">Social Media Investigations - $1,425 - $3,325 (Package)</option>
+                            <option value="Corporate Espionage Investigations|$2,850+ (Custom Quote)">Corporate Espionage Investigations - $2,850+ (Custom Quote)</option>
+                            <option value="Child Custody Investigations|$1,900 - $4,750 (Package)">Child Custody Investigations - $1,900 - $4,750 (Package)</option>
                         </select>
                     </div>
                     <button class="btn btn-primary" onclick="nextStep(2)">Next</button>
@@ -2508,20 +2797,20 @@
     <section id="btc-guide" class="btc-guide-section">
         <div class="container">
             <h2 class="section-title">How to Get Bitcoin (BTC)</h2>
-            <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:var(--text-muted);">We only accept Bitcoin (BTC) for all services. Here's a complete guide to acquiring Bitcoin securely and anonymously.</p>
+            <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:var(--text-muted);">We only accept Bitcoin (BTC) for all services. The easiest options are CashApp, Venmo, or a nearby BTC ATM. Here's a complete guide to acquiring Bitcoin securely and anonymously.</p>
             
             <div class="btc-guide-grid">
-                <div class="guide-card">
-                    <div class="guide-icon"><i class="fas fa-exchange-alt"></i></div>
-                    <h3>1. Cryptocurrency Exchanges</h3>
-                    <p><strong>Recommended Platforms:</strong></p>
+                <div class="guide-card highlight-card">
+                    <div class="guide-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>1. Buy BTC via CashApp, Venmo or BTC ATM</h3>
+                    <p><strong>Most accessible option:</strong></p>
                     <ul style="text-align:left; color:var(--text-muted); margin:1rem 0;">
-                        <li>• <strong>Kraken</strong> - High liquidity, competitive fees (0.16%-0.26%)</li>
-                        <li>• <strong>Coinbase</strong> - Beginner-friendly, 1.49% + network fees</li>
-                        <li>• <strong>Gemini</strong> - Secure, 1.49% maker, 2.49% taker</li>
-                        <li>• <strong>Bitstamp</strong> - Reliable, 0.5% fees for high volume</li>
+                        <li>• <strong>CashApp</strong> - Easy mobile purchase and transfer</li>
+                        <li>• <strong>Venmo</strong> - Quick payment into your wallet</li>
+                        <li>• <strong>BTC ATM</strong> - Buy Bitcoin with cash nearby</li>
                     </ul>
-                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Process:</strong> Sign up → Verify ID → Add payment method → Buy BTC → Withdraw to your wallet</p>
+                    <p style="font-size:0.9rem; margin-top:1rem;"><strong>Tip:</strong> Search YouTube for guides on buying BTC with CashApp or Venmo and sending it to an external wallet. Watch step-by-step videos before your first transfer.</p>
+                    <div class="guide-tip"><strong>Important:</strong> First time BTC buyers should verify wallet address carefully and send a small test amount before larger transfers.</div>
                 </div>
 
                 <div class="guide-card">
@@ -3489,6 +3778,22 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+    </script>
+
+    <!-- Read More Toggle Functions -->
+    <script>
+        function toggleList(elementId, button) {
+            const list = document.getElementById(elementId);
+            list.classList.toggle('collapsed');
+            list.classList.toggle('expanded');
+            button.textContent = list.classList.contains('expanded') ? 'Read Less -' : 'Read More +';
+        }
+
+        function toggleContent(elementId, button) {
+            const content = document.getElementById(elementId);
+            content.classList.toggle('show');
+            button.textContent = content.classList.contains('show') ? 'Read Less -' : 'Read More +';
+        }
     </script>
 </body>
 </html>
