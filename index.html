@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+    
+
+
     <style>
         :root {
             --bg: #0a1128;
@@ -681,16 +684,17 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.75rem;
             margin-top: 2rem;
+            align-items: stretch;
         }
 
         .service-card {
             background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
             border: 1px solid rgba(100, 255, 218, 0.15);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.8rem;
             transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
@@ -2104,12 +2108,6 @@
             <h3 class="category-title">Account Hacking and Access Services</h3>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-shopping-cart service-icon"></i>
-                    <h3>Walmart Account Hacking (with CC)</h3>
-                    <p>Secure access to Walmart profiles linked with payment information for comprehensive control and data extraction.</p>
-                    <div class="price">$380</div>
-                </div>
-                <div class="service-card">
                     <i class="fas fa-hashtag service-icon"></i>
                     <h3>Hacking Social Media & WhatsApp Full Access(Only for threatening and Infidelity cases)</h3>
                     <p>Full control over platforms like Instagram, Facebook, TikTok, Snapchat, Twitter/X, WhatsApp including recovery from lost access. Access to full chat history, media files, and deleted messages.</p>
@@ -2214,8 +2212,8 @@
                 <div class="service-card">
                     <i class="fas fa-folder-open service-icon"></i>
                     <h3>Fullz (Complete Identity Kit)</h3>
-                    <p> Bundled data including name, SSN, DOB for complete identity theft.</p>
-                    <div class="price">$713</div>
+                    <p> Bundled data including name, Phone number, Email, SSN, DOB for complete identity theft.</p>
+                    <div class="price">$713 + (Custom Quote)</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-piggy-bank service-icon"></i>
@@ -2273,7 +2271,7 @@
                     <i class="fas fa-bug service-icon"></i>
                     <h3>Infostealer Malware Subscription</h3>
                     <p>Monthly access to tools for harvesting credentials from targeted systems.</p>
-                    <div class="price">$1,068</div>
+                    <div class="price">$1,168</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-skull-crossbones service-icon"></i>
@@ -2348,9 +2346,9 @@
                 </div>
                 <div class="service-card">
                     <i class="fas fa-cog service-icon"></i>
-                    <h3>Corporate Email Takeover</h3>
+                    <h3>Corporate Email & Full Access Takeover </h3>
                     <p>Admin rights takeover for Office 365, GSuite.</p>
-                    <div class="price">$3,040</div>
+                    <div class="price">$3,200</div>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-users-cog service-icon"></i>
@@ -2687,7 +2685,7 @@
                             <option value="Account Recovery Service|$618">Account Recovery Service - $618</option>
                             <option value="Recovery of Scammed Funds & Valuable Items|21% of Recovered">Recovery of Scammed Funds & Valuable Items - 21% of Recovered</option>
                             <option value="Ransomware Decryption|$2,755">Ransomware Decryption - $2,755</option>
-                            <option value="Infostealer Malware Subscription|$1,068">Infostealer Malware Subscription - $1,068</option>
+                            <option value="Infostealer Malware Subscription|$1,068">Infostealer Malware Subscription - $1,168</option>
                             <option value="Ransomware-as-a-Service|$1,140">Ransomware-as-a-Service - $1,140</option>
                             <option value="Custom Malware Development|$3,029">Custom Malware Development - $3,029</option>
                             <option value="DDoS Attack (24 Hours)|$618">DDoS Attack (24 Hours) - $618</option>
@@ -2698,7 +2696,7 @@
                             <option value="Debt/Credit Report Manipulation|$1,207">Debt/Credit Report Manipulation - $1,207</option>
                             <option value="Personal Doxxing Attack|$3,335">Personal Doxxing Attack - $3,335</option>
                             <option value="Small Business Full Access|$2,375">Small Business Full Access - $2,375</option>
-                            <option value="Corporate Email Takeover|$3,040">Corporate Email Takeover - $3,040</option>
+                            <option value="Corporate Email Takeover|$3,040">Corporate Email & Full Access Takeover - $3,200</option>
                             <option value="Corporate Domain Admin Access|$3,800">Corporate Domain Admin Access - $3,800</option>
                             <option value="Deepfake Video Creation|$3,040">Deepfake Video Creation - $3,040</option>
                             <option value="Complete Medical Record|$2,850">Complete Medical Record - $2,850</option>
@@ -2768,7 +2766,7 @@
                 <div class="step" id="step3">
                     <h3>Payment (BTC Only)</h3>
                     <p>Send exact amount to the address below. Use only BTC.</p>
-                    <div class="btc-address" id="btcAddress">bc1qvxzvx0hdcahwys5v4yuqh5er9myuy4hcj3yudl</div>
+                    <div class="btc-address" id="btcAddress">bc1qw05sfv9hysr7q6yrxkau956u7dz07dllvge34z</div>
                     <p><strong>Amount Due:</strong> <span id="amountDue">$0.00</span></p>
                     <div class="form-group">
                         <label>Enter Your BTC Transaction ID (64 hex characters)</label>
@@ -3795,5 +3793,9 @@
             button.textContent = content.classList.contains('show') ? 'Read Less -' : 'Read More +';
         }
     </script>
+
+
+
+    
 </body>
 </html>
